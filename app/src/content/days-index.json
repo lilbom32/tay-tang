@@ -1,0 +1,11 @@
+[
+  { "day": 1, "theme": "Hạ cánh trên nóc nhà", "altitudeAvg": "3.650m", "emotion": "Xa lạ, hồi hộp, tôn nghiêm", "knowledgeLayer": "Địa lý – Sinh học – Tâm linh nhập môn", "hasDetail": true },
+  { "day": 2, "theme": "Cội nguồn văn minh", "altitudeAvg": "3.500–3.700m", "emotion": "Tò mò, khai sáng", "knowledgeLayer": "Tiền sử – Bön – Nhập Phật", "hasDetail": false },
+  { "day": 3, "theme": "Đường lên trời", "altitudeAvg": "4.400–5.020m", "emotion": "Choáng ngợp, khiêm nhường", "knowledgeLayer": "Thủy văn – Khí hậu – Biến đổi khí hậu", "hasDetail": false },
+  { "day": 4, "theme": "Đỉnh Vinh Quang", "altitudeAvg": "3.800–5.000m", "emotion": "Trầm lắng, nghiêm trang", "knowledgeLayer": "Gelug – Panchen – Tượng học", "hasDetail": false },
+  { "day": 5, "theme": "Dưới chân Nữ Thần", "altitudeAvg": "5.200m", "emotion": "Đỉnh điểm hùng vĩ", "knowledgeLayer": "Himalaya – Thần thoại – Leo núi", "hasDetail": false },
+  { "day": 6, "theme": "Dòng sông Mẹ", "altitudeAvg": "3.650–4.000m", "emotion": "Lắng đọng, hoài niệm", "knowledgeLayer": "Dân tộc học – Nông nghiệp – Huyền sử", "hasDetail": false },
+  { "day": 7, "theme": "Trái tim Lhasa", "altitudeAvg": "3.650m", "emotion": "Sâu lắng, đồng cảm", "knowledgeLayer": "Hành hương – Tín ngưỡng hàng ngày", "hasDetail": false },
+  { "day": 8, "theme": "Vào trong đá", "altitudeAvg": "3.650–4.880m", "emotion": "Tĩnh lặng, sáng tạo", "knowledgeLayer": "Thiền định – Thangka – Nghệ thuật", "hasDetail": false },
+  { "day": 9, "theme": "Mang theo Tây Tạng", "altitudeAvg": "0m (về nhà)", "emotion": "Biết ơn, mở mang", "knowledgeLayer": "Tổng hợp – Phản tỉnh – Hành động", "hasDetail": false }
+]

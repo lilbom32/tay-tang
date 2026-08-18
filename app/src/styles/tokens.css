@@ -1,0 +1,69 @@
+:root {
+  --gold: #dfb360;
+  --gold-light: #fce7b4;
+  --gold-dim: #a8854a;
+  --wine: #6a1b22;
+  --wine-light: #8f2530;
+  --accent: #2e6074;
+  --accent-light: #4a8fa8;
+
+  --bg: #0f1015;
+  --bg-2: #151821;
+  --bg-3: #1c2029;
+  --line: #2b303c;
+
+  --text: #f1f2f6;
+  --text-dim: #a9b0bd;
+
+  --ok: #5fa87a;
+  --warn: #d98b3a;
+  --danger: #c9534a;
+
+  /* Cinzel (Google Font) drops Vietnamese tone marks — the combining accent
+     renders as a stray glyph next to the base letter. Outfit has full
+     Vietnamese coverage, so it carries both display and body text. */
+  --font-display: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Outfit", "Segoe UI", system-ui, sans-serif;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(106, 27, 34, 0.18) 0%, rgba(15, 16, 21, 1) 60%);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--gold-light);
+  margin: 0 0 0.5em;
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent-light);
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}

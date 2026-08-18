@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tây Tạng Huyền Bí — Tour 9N8Đ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #dfb360;
+    --accent-light: #fce7b4;
+    --wine: #6a1b22;
+    --text: #f8fafcdd;
+    --cycle-ms: 4800ms;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: #0f1015;
+    color: var(--text);
+    font-family: "Outfit", sans-serif;
+    overflow: hidden;
+  }
+
+  /* ---------- intro cover wipe ---------- */
+  .cover {
+    position: fixed; inset: 0; z-index: 200;
+    background: linear-gradient(135deg, #14151c 0%, #0f1015 100%);
+    animation: coverOut 0.9s 0.3s cubic-bezier(.65,0,.35,1) forwards;
+  }
+  @keyframes coverOut { to { transform: translateX(105%); } }
+
+  /* ---------- top timer bar ---------- */
+  .timer-track {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px;
+    background: rgba(255,255,255,0.15); z-index: 90;
+  }
+  .timer-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--wine), var(--accent));
+  }
+  .timer-fill.animate { transition: width var(--cycle-ms) linear; width: 100%; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 26px 48px;
+    opacity: 0; transform: translateY(-26px);
+    animation: navIn 0.7s 0.9s ease forwards;
+  }
+  @keyframes navIn { to { opacity: 1; transform: translateY(0); } }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: "Cinzel", serif; font-weight: 600; font-size: 14px;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light);
+  }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--accent); background: var(--wine); }
+  .nav-links {
+    display: flex; align-items: center; gap: 30px;
+    font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+  }
+  .nav-links .active { color: #fff; position: relative; }
+  .nav-links .active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -9px; height: 2px;
+    background: var(--accent); border-radius: 2px;
+  }
+
+  /* ---------- stage / cards ---------- */
+  .stage { position: fixed; inset: 0; }
+  .card {
+    position: absolute; background-size: cover; background-position: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    transition:
+      left 0.9s cubic-bezier(.65,0,.35,1),
+      top 0.9s cubic-bezier(.65,0,.35,1),
+      width 0.9s cubic-bezier(.65,0,.35,1),
+      height 0.9s cubic-bezier(.65,0,.35,1),
+      border-radius 0.9s cubic-bezier(.65,0,.35,1);
+  }
+  .card::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 32%, rgba(10,6,4,0.72) 100%);
+    transition: background 0.6s ease;
+  }
+  .card.thumb { border-radius: 14px; cursor: pointer; }
+  .card.thumb:hover { filter: brightness(1.1); }
+  .card.active { border-radius: 0; }
+  .thumb-caption {
+    position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 2;
+    font-family: "Cinzel", serif; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.03em;
+    display: none;
+  }
+  .card.thumb .thumb-caption { display: block; }
+
+  /* ---------- details panel ---------- */
+  .details {
+    position: fixed; left: 64px; bottom: 190px; max-width: 540px; z-index: 60;
+  }
+  .details .eyebrow { width: 32px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 12px; }
+  .details .place {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.72); margin-bottom: 8px; overflow: hidden;
+  }
+  .details h1 {
+    font-family: "Cinzel", serif; font-weight: 600; text-transform: uppercase;
+    font-size: clamp(32px, 4.4vw, 58px); line-height: 1.06; margin: 0 0 16px;
+    overflow: hidden; color: #fff; letter-spacing: 0.01em;
+  }
+  .details h1 span {
+    display: block; transform: translateY(100%); opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  .details.enter h1 span { transform: translateY(0); opacity: 1; }
+  .details .desc {
+    font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.82);
+    margin: 0 0 24px; opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease 0.12s, transform 0.5s ease 0.12s;
+  }
+  .details.enter .desc { opacity: 1; transform: translateY(0); }
+  .cta-row {
+    display: flex; align-items: center; gap: 14px;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease 0.22s, transform 0.5s ease 0.22s;
+  }
+  .details.enter .cta-row { opacity: 1; transform: translateY(0); }
+  .bookmark-btn {
+    width: 42px; height: 42px; border-radius: 50%; border: none;
+    background: var(--accent); color: #241304; display: grid; place-items: center;
+    cursor: pointer; font-size: 18px;
+  }
+  .discover-btn {
+    border: 1px solid rgba(255,255,255,0.85); background: transparent; color: #fff;
+    padding: 11px 28px; border-radius: 99px; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer;
+  }
+  .discover-btn:hover { background: rgba(255,255,255,0.1); }
+
+  /* ---------- pagination ---------- */
+  .pagination {
+    position: fixed; right: 64px; bottom: 56px; z-index: 70;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .arrow-btn {
+    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.35);
+    background: rgba(0,0,0,0.25); color: #fff; display: grid; place-items: center;
+    cursor: pointer; font-size: 18px;
+  }
+  .arrow-btn:hover { border-color: var(--accent); }
+  .progress-outer {
+    width: 220px; height: 2px; background: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden;
+  }
+  .progress-inner { height: 100%; background: var(--accent); transition: width 0.6s ease; }
+  .slide-count { font-family: "Cinzel", serif; font-size: 20px; font-weight: 700; min-width: 40px; text-align: right; color: var(--accent-light); }
+
+  @media (max-width: 720px) {
+    .details { left: 24px; right: 24px; bottom: 220px; }
+    .pagination { right: 24px; bottom: 24px; }
+    nav { padding: 20px 24px; }
+    .nav-links span:not(.active) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover"></div>
+
+<div class="timer-track"><div class="timer-fill" id="timer-fill"></div></div>
+
+<nav>
+  <div class="brand"><span class="dot"></span>Tây Tạng Huyền Bí</div>
+  <div class="nav-links">
+    <span class="active">Trang Chủ</span>
+    <span>Lịch Trình</span>
+    <span>Điểm Đến</span>
+    <span>Cẩm Nang HDV</span>
+    <span>Liên Hệ</span>
+  </div>
+</nav>
+
+<div class="stage" id="stage"></div>
+
+<div class="details" id="details">
+  <div class="eyebrow"></div>
+  <div class="place" id="place-text"></div>
+  <h1><span id="title-1"></span><span id="title-2"></span></h1>
+  <p class="desc" id="desc-text"></p>
+  <div class="cta-row">
+    <button class="bookmark-btn" aria-label="Lưu địa điểm">&#9733;</button>
+    <button class="discover-btn">Khám phá điểm đến</button>
+  </div>
+</div>
+
+<div class="pagination">
+  <button class="arrow-btn" id="prev-btn" aria-label="Trước">&#8592;</button>
+  <button class="arrow-btn" id="next-btn" aria-label="Sau">&#8594;</button>
+  <div class="progress-outer"><div class="progress-inner" id="progress-inner"></div></div>
+  <div class="slide-count" id="slide-count">01</div>
+</div>
+
+<script>
+  // ------- dữ liệu 7 điểm đến chính, theo thứ tự lịch trình 9N8Đ -------
+  const DATA = [
+    {
+      place: "Lhasa · 3.650m — Ngày 1 & 8",
+      title1: "CUNG ĐIỆN",
+      title2: "POTALA",
+      desc: "Đồi Marpo Ri giữa lòng thung lũng — 13 tầng, hơn 1.000 phòng, từng là nơi ở của các đời Đạt Lai Lạt Ma. Biểu tượng thiêng liêng nhất của Tây Tạng.",
+      gradient: "radial-gradient(circle at 75% 18%, rgba(255,206,130,0.35), transparent 42%), linear-gradient(135deg,#7a2331,#2a0f16)"
+    },
+    {
+      place: "Tsedang · 3.500m — Ngày 2",
+      title1: "CÁI NÔI",
+      title2: "VĂN MINH",
+      desc: "Yumbulagang — cung điện cổ nhất Tây Tạng, và Samye — tu viện Phật giáo đầu tiên, giữa thung lũng Yarlung nơi lúa mạch được trồng từ 5.600 năm trước.",
+      gradient: "radial-gradient(circle at 25% 20%, rgba(233,193,110,0.3), transparent 40%), linear-gradient(135deg,#6b5433,#28200f)"
+    },
+    {
+      place: "Đèo Kampa La · 4.441m — Ngày 3",
+      title1: "HỒ THIÊNG",
+      title2: "YAMDROK",
+      desc: "638km² nước ngọc lam tinh khiết, một trong ba hồ thiêng của Tây Tạng — không sông nào chảy ra, chỉ bốc hơi thẳng vào bầu trời.",
+      gradient: "radial-gradient(circle at 70% 25%, rgba(120,220,210,0.3), transparent 42%), linear-gradient(135deg,#1f6b6b,#0c2a2d)"
+    },
+    {
+      place: "Đèo Karola · 5.020m — Ngày 3",
+      title1: "SÔNG BĂNG",
+      title2: "KAROLA",
+      desc: "Dòng băng cổ chảy từ đỉnh Noijin Kangsang 7.206m, hiện rút lui khoảng 20m mỗi năm — một cỗ đồng hồ khí hậu sống của cao nguyên.",
+      gradient: "radial-gradient(circle at 30% 15%, rgba(200,225,255,0.32), transparent 45%), linear-gradient(135deg,#4a6b85,#141f28)"
+    },
+    {
+      place: "Shigatse · 3.840m — Ngày 4",
+      title1: "TU VIỆN",
+      title2: "TASHILHUNPO",
+      desc: "Trụ sở của Đức Ban Thiền Lạt Ma, thủ phủ tâm linh vùng Hậu Tạng — nơi những cánh đồng cải dầu vàng rực trải dài suốt tháng Tư.",
+      gradient: "radial-gradient(circle at 78% 22%, rgba(230,180,90,0.32), transparent 42%), linear-gradient(135deg,#8a6a2f,#332711)"
+    },
+    {
+      place: "Everest Base Camp · 5.200m — Ngày 4–5",
+      title1: "NÓC NHÀ",
+      title2: "THẾ GIỚI",
+      desc: "Trại căn cứ phía Bắc Everest, đối diện vách Đông Bắc của đỉnh 8.849m — một trong những nơi ít oxy nhất mà con người có thể đứng vững.",
+      gradient: "radial-gradient(circle at 60% 12%, rgba(210,225,255,0.28), transparent 40%), linear-gradient(135deg,#2b3550,#0a0e1a)"
+    },
+    {
+      place: "Lhasa · Barkhor — Ngày 7",
+      title1: "PHỐ CỔ",
+      title2: "BARKHOR",
+      desc: "Vòng kora quanh đền Jokhang linh thiêng nhất Tây Tạng — nơi tín đồ hành hương nhất bộ nhất bái giữa khói hương trầm và tiếng chuông kinh.",
+      gradient: "radial-gradient(circle at 25% 20%, rgba(230,150,90,0.32), transparent 42%), linear-gradient(135deg,#8a4a2f,#331f12)"
+    },
+  ];
+
+  const CYCLE_MS = 4800;
+  const CARD_W = 150, CARD_H = 210, GAP = 18, SIDE_MARGIN = 64, THUMB_BOTTOM_OFFSET = 130;
+
+  let order = DATA.map((_, i) => i);
+  let timerTimeout = null;
+
+  const stage = document.getElementById("stage");
+  const detailsEl = document.getElementById("details");
+  const timerFill = document.getElementById("timer-fill");
+
+  function buildCards() {
+    DATA.forEach((d, i) => {
+      const el = document.createElement("div");
+      el.className = "card";
+      el.id = "card-" + i;
+      el.style.backgroundImage = d.gradient;
+      el.innerHTML = `<div class="thumb-caption">${d.title1} ${d.title2}</div>`;
+      el.addEventListener("click", () => {
+        if (el.classList.contains("thumb")) jumpTo(i);
+      });
+      stage.appendChild(el);
+    });
+  }
+
+  function layout() {
+    const W = window.innerWidth, H = window.innerHeight;
+    order.forEach((cardIndex, pos) => {
+      const el = document.getElementById("card-" + cardIndex);
+      if (pos === 0) {
+        el.classList.add("active");
+        el.classList.remove("thumb");
+        Object.assign(el.style, { left: "0px", top: "0px", width: W + "px", height: H + "px" });
+      } else {
+        el.classList.remove("active");
+        el.classList.add("thumb");
+        const i = pos - 1;
+        const totalThumbs = order.length - 1;
+        const totalW = totalThumbs * CARD_W + (totalThumbs - 1) * GAP;
+        const startX = W - SIDE_MARGIN - totalW;
+        const x = startX + i * (CARD_W + GAP);
+        const y = H - THUMB_BOTTOM_OFFSET - CARD_H;
+        Object.assign(el.style, { left: x + "px", top: y + "px", width: CARD_W + "px", height: CARD_H + "px" });
+      }
+    });
+  }
+
+  function updateDetails() {
+    const d = DATA[order[0]];
+    detailsEl.classList.remove("enter");
+    void detailsEl.offsetWidth; // reset animation
+    document.getElementById("place-text").textContent = d.place;
+    document.getElementById("title-1").textContent = d.title1;
+    document.getElementById("title-2").textContent = d.title2;
+    document.getElementById("desc-text").textContent = d.desc;
+    requestAnimationFrame(() => detailsEl.classList.add("enter"));
+  }
+
+  function updatePagination() {
+    const idx = order[0];
+    document.getElementById("slide-count").textContent = String(idx + 1).padStart(2, "0");
+    document.getElementById("progress-inner").style.width = ((idx + 1) / DATA.length) * 100 + "%";
+  }
+
+  function restartTimer() {
+    clearTimeout(timerTimeout);
+    timerFill.classList.remove("animate");
+    void timerFill.offsetWidth;
+    timerFill.classList.add("animate");
+    timerTimeout = setTimeout(() => advance(1), CYCLE_MS);
+  }
+
+  function advance(dir) {
+    if (dir === 1) order.push(order.shift());
+    else order.unshift(order.pop());
+    layout();
+    updateDetails();
+    updatePagination();
+    restartTimer();
+  }
+
+  function jumpTo(cardIndex) {
+    const pos = order.indexOf(cardIndex);
+    if (pos <= 0) return;
+    order = order.slice(pos).concat(order.slice(0, pos));
+    layout();
+    updateDetails();
+    updatePagination();
+    restartTimer();
+  }
+
+  document.getElementById("next-btn").addEventListener("click", () => advance(1));
+  document.getElementById("prev-btn").addEventListener("click", () => advance(-1));
+  window.addEventListener("resize", layout);
+
+  buildCards();
+  layout();
+  updateDetails();
+  updatePagination();
+  setTimeout(() => {
+    detailsEl.classList.add("enter");
+    restartTimer();
+  }, 1000);
+</script>
+
+</body>
+</html>

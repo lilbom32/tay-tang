@@ -1,0 +1,188 @@
+{
+  "day": 1,
+  "slug": "ngay-1",
+  "title": "Vùng Đất Của Các Vị Thần",
+  "route": "TP.HCM → Thành Đô → Lhasa · Sân bay Gonggar → Khách sạn Lhasa",
+  "theme": "Hạ cánh trên nóc nhà",
+  "emotion": "Xa lạ, hồi hộp, tôn nghiêm",
+  "altitudeAvg": "3.650m",
+  "knowledgeLayer": "Địa lý – Sinh học – Tâm linh nhập môn",
+  "mission": "Đoàn bay từ 4h50 sáng, transit Thành Đô, đáp Lhasa lúc 18h30. Oxy tại Lhasa chỉ bằng 65% so với mực nước biển. Mọi người mệt, có thể đã bắt đầu đau đầu nhẹ. Nhiệm vụ ngày 1 không phải dồn kiến thức mà là chuẩn bị tâm hồn. Giống như overture của vở opera — gieo motif, không kể hết câu chuyện.",
+  "touchpoints": [
+    {
+      "id": "t1-1",
+      "time": "04:00",
+      "title": "Điểm hẹn sân bay Tân Sơn Nhất",
+      "location": "SGN Terminal 1",
+      "actor": "HDV-VN",
+      "type": "risk",
+      "standard": "Tất cả có mặt trước 04:30",
+      "risk": "Một khách trễ ảnh hưởng cả đoàn"
+    },
+    {
+      "id": "t1-2",
+      "time": "04:50",
+      "title": "Máy bay cất cánh SGN → TFU",
+      "location": "Máy bay",
+      "actor": "HDV-VN",
+      "type": "normal",
+      "standard": "Nhắc khách nghỉ ngơi, không uống rượu trên máy bay"
+    },
+    {
+      "id": "t1-3",
+      "time": "09:00",
+      "title": "Transit tại Thành Đô",
+      "location": "TFU sân bay",
+      "actor": "HDV-VN",
+      "type": "normal",
+      "standard": "Ăn trưa voucher 60 CNY, giải thích Tứ Xuyên (2 câu), dẫn ra cổng C boarding",
+      "risk": "Khách bị lạc ở sân bay TFU"
+    },
+    {
+      "id": "t1-4",
+      "time": "11:30",
+      "title": "Máy bay cất cánh TFU → LXA",
+      "location": "Máy bay",
+      "actor": "HDV-VN",
+      "type": "risk",
+      "standard": "Bắt đầu chuẩn bị tâm lý khách",
+      "risk": "Khách không nghe, không chuẩn bị",
+      "scriptRef": "d1-s2"
+    },
+    {
+      "id": "t1-5",
+      "time": "18:30",
+      "title": "Lễ Khata tại Gonggar",
+      "location": "Sân bay LXA",
+      "actor": "HDV-VN",
+      "type": "mot",
+      "standard": "10–12 phút, không vội",
+      "risk": "Làm quá nhanh → mất hiệu quả",
+      "scriptRef": "d1-s3"
+    },
+    {
+      "id": "t1-6",
+      "time": "18:45",
+      "title": "Xe từ Gonggar về Lhasa",
+      "location": "Xe buýt · 65km",
+      "actor": "HDV-VN",
+      "type": "normal",
+      "standard": "Không dồn thông tin, để khách nhìn",
+      "risk": "Thuyết minh dày → khách mệt",
+      "scriptRef": "d1-s4"
+    },
+    {
+      "id": "t1-7",
+      "time": "20:00",
+      "title": "Check-in khách sạn Lhasa",
+      "location": "Hotel 4★",
+      "actor": "OPS",
+      "type": "risk",
+      "standard": "Phân phòng nhanh (<15 phút), nhắc KHÔNG tắm nước nóng tối nay",
+      "risk": "Check-in chậm → khách kiệt sức"
+    },
+    {
+      "id": "t1-8",
+      "time": "20:30",
+      "title": "Bữa tối đầu tiên",
+      "location": "Nhà hàng",
+      "actor": "HDV-VN",
+      "type": "normal",
+      "standard": "Vui vẻ, nhẹ nhàng",
+      "risk": "Khách từ chối ăn → đói → sốc độ cao nặng hơn",
+      "scriptRef": "d1-s5"
+    },
+    {
+      "id": "t1-9",
+      "time": "21:30",
+      "title": "Ngắm Potala ban đêm (tuỳ chọn)",
+      "location": "Quảng trường Potala",
+      "actor": "HDV-VN",
+      "type": "risk",
+      "standard": "Tối đa 20 phút, về trước 22:00",
+      "risk": "Khách đứng lâu → kiệt sức",
+      "scriptRef": "d1-s6"
+    },
+    {
+      "id": "t1-10",
+      "time": "Suốt đêm",
+      "title": "Theo dõi sức khoẻ",
+      "location": "Khách sạn",
+      "actor": "OPS",
+      "type": "risk",
+      "standard": "Thông báo số hotline khẩn trước khi ngủ: \"Nếu đau đầu dữ dội hoặc khó thở sau 0h, gọi ngay số này\"",
+      "risk": "Không phản hồi khẩn → nguy hiểm"
+    }
+  ],
+  "scripts": [
+    {
+      "id": "d1-s2",
+      "heading": "Trên máy bay / tại sân bay Thành Đô — Nhập môn sinh học cao nguyên",
+      "timing": "Sau khi ăn trưa voucher, chờ nối chuyến, hoặc trên chuyến bay TFU–LXA",
+      "body": [
+        "Quý khách vừa ăn xong bữa trưa ở độ cao gần bằng đỉnh Fansipan. Nhưng trong vòng một tiếng nữa, chúng ta sẽ hạ cánh ở nơi cao hơn Fansipan gần hai lần. Cơ thể của chúng ta, được tiến hoá ở mực nước biển trong 300.000 năm, giờ đang phải học cách sống lại trong vòng vài giờ.",
+        "Người Tây Tạng có một gene đặc biệt — EPAS1 — giúp họ sử dụng oxy hiệu quả hơn. Gene này không có ở người Hán, không có ở người Việt, không có ở người châu Âu. Họ có nó vì tổ tiên họ đã sống ở đây hơn 10.000 năm. Hôm nay, chúng ta chỉ là những vị khách mượn tạm cơ thể của họ — trong 9 ngày.",
+        "Vì vậy, quý khách nhớ: uống nước ấm từng ngụm nhỏ, đừng vội vàng khi xuống máy bay, và đặc biệt — tối nay đừng tắm. Không phải vì mê tín. Mà vì khi cơ thể đang thích nghi thiếu oxy, nước nóng làm giãn mạch máu — tim phải làm việc gấp đôi. Người Tây Tạng không tắm mỗi ngày ở độ cao này. Họ biết điều gì là quan trọng hơn sự sạch sẽ bề mặt.",
+        "Lhasa có nghĩa là 'Nơi của các vị thần'. Nhưng trước đó, tên thành phố này là Rasa — có nghĩa là 'Dê'. Một thành phố từ 'Dê' thành 'Thần'. Đó chính là câu chuyện chúng ta sẽ nghe trong 9 ngày tới — làm thế nào một vùng đất khắc nghiệt nhất thế giới lại trở thành nơi người ta tìm đến để tìm ý nghĩa cuộc sống."
+      ],
+      "action": "Pause 3 giây để mọi người hấp thụ trước khi qua câu Lhasa/Rasa."
+    },
+    {
+      "id": "d1-s3",
+      "heading": "Xuống sân bay Gonggar — Nghi thức Khata",
+      "timing": "Ngay khi đoàn ra khỏi khu vực hành lý, HDV địa phương chào đón",
+      "body": [
+        "Quý khách thấy không khí không? Nó không chỉ lạnh — nó mỏng. Cảm giác như phổi mình là một cái túi bị xì hơi một nửa. Đó là bình thường. Hãy thở chậm lại.",
+        "Người vừa trao khăn trắng cho quý khách là HDV Tây Tạng. Chiếc khăn gọi là Khata — không phải khăn ướt ở nhà hàng, không phải khăn lạnh trên máy bay. Khata là một loại lụa mỏng, màu trắng tượng trưng cho tâm trong sạch. Khi chúng ta trao Khata cho nhau, chúng ta không lau mặt — chúng ta trao một lời chúc: 'Tashi Delek' — Cát tường như ý.",
+        "Quý khách nhận Khata bằng hai tay, cúi đầu nhẹ. Không cần cúi sâu — chỉ cần thành tâm. Nếu HDV đặt Khata lên cổ quý khách, đó là cách người Tây Tạng trả lại phước lành. Quý khách đừng tháo ra ngay — để nó ở đó cho đến khi lên xe."
+      ],
+      "action": "HDV đi từng người, trao Khata, nói \"Tashi Delek\", đặt lên cổ hoặc để khách tự đeo. Động tác chậm, không vội. Xem chi tiết đầy đủ ở MOT-1 trong Cẩm Nang HDV."
+    },
+    {
+      "id": "d1-s4",
+      "heading": "Trên xe về Lhasa — Mandala sống",
+      "timing": "Khoảng 1 tiếng từ Gonggar về Lhasa. Trời bắt đầu tối. Xe chạy dọc sông Lhasa.",
+      "body": [
+        "Chúng ta đang đi trên con đường mà Tống Tạng Cán Bố — vị vua đầu tiên thống nhất Tây Tạng — đã đi từ thế kỷ thứ 7. Bên trái quý khách là sông Lhasa, bắt nguồn từ sông băng trên dãy Nyenchen Tanglha. Nước sông này uốn lượn qua cao nguyên 1.800 km trước khi đổ vào Ấn Độ Dương dưới tên Brahmaputra. Mỗi giọt nước quý khách nhìn thấy đang chảy về phía Nam, nuôi sống hàng triệu người ở Bangladesh và Ấn Độ. Tây Tạng không chỉ là 'nóc nhà' — Tây Tạng là tháp nước của châu Á.",
+        "Nhìn lên phía trước — quý khách sắp thấy ánh đèn của Lhasa. Thành phố này có hơn 3.000 giờ nắng một năm. Mùa này, mặt trời lặn khoảng 8 giờ tối. Ban đêm, nhiệt độ có thể xuống dưới 5 độ. Nhưng ban ngày, vì không khí loãng và ít mây, ánh nắng đập thẳng vào da như kim châm. Đó là lý do Lhasa được gọi là 'Thành phố Ánh Dương'.",
+        "Tôi muốn quý khách nhìn ra cửa sổ và tìm một thứ: phướn kinh — những lá cờ nhiều màu treo trên dây, trên cầu, trên đỉnh đồi. Chúng gọi là Lungta — Ngựa Gió. Mỗi lá cờ in một câu thần chú. Khi gió thổi qua, người Tây Tạng tin rằng thần chú được gửi đi khắp nơi, lan toả phước lành. Đó là lý do họ treo cờ ở mọi nơi gió mạnh — trên đèo, trên núi, trên sông. Họ không cần Internet. Họ có gió.",
+        "Đêm nay, chúng ta không đi đâu cả. Ăn tối xong về khách sạn, nghỉ ngơi. Tôi biết nhiều quý khách hào hứng muốn đi dạo phố ngay. Nhưng xin hãy kiên nhẫn. Cơ thể quý khách đang viết lại toàn bộ phần mềm hô hấp. Hãy để nó làm việc trong yên lặng. Ngày mai, khi quý khách thức dậy — quý khách sẽ là một người khác. Không phải vì tôi nói gì. Mà vì quý khách đã thở cùng một không khí mà các bậc đại sư đã thở cách đây 1.300 năm."
+      ],
+      "action": "Pause. Để mọi người nhìn ra ngoài, đừng phá vỡ khoảnh khắc."
+    },
+    {
+      "id": "d1-s5",
+      "heading": "Bữa tối đầu tiên — Văn hoá ẩm thực nhập môn",
+      "timing": "Tại nhà hàng địa phương, bữa tối đầu tiên",
+      "body": [
+        "Bữa tối đầu tiên ở Tây Tạng, tôi không muốn quý khách chỉ ăn — tôi muốn quý khách hiểu.",
+        "Thứ nhất: trà bơ sẽ được rót ngay bây giờ. Nó không ngọt. Nó béo, mặn, đặc. Nó được làm từ trà đen ép bánh từ vùng Yunnan, bơ yak, và muối. Một cốc trà bơ chứa khoảng 250 calo — bằng một bát phở. Người Tây Tạng uống 20–30 cốc một ngày. Không phải vì họ thích — mà vì ở độ cao này, cơ thể cần chất béo và muối để giữ nước. Trà bơ không phải đồ uống. Nó là nhiên liệu sinh tồn.",
+        "Cách uống: không uống một hơi cạn bát. Uống từng ngụm nhỏ. Nếu chủ nhà rót đầy, đừng cố uống hết — để lại một ít. Nếu không, họ sẽ rót tiếp suốt bữa ăn. Người Tây Tạng không bao giờ để bát khách trống hoàn toàn — đó là cách họ thể hiện lòng hiếu khách.",
+        "Thứ hai: món thịt yak. Yak là con vật quan trọng nhất cao nguyên. Nó cung cấp thịt, sữa, bơ, lông, phân làm nhiên liệu. Không có yak, không có nền văn minh Tây Tạng. Thịt yak có vị gần giống bò nhưng săn hơn, ít mỡ hơn. Người Tây Tạng tin rằng giết một con yak lớn nuôi được nhiều người ít nghiệp hơn giết một con gà nhỏ chỉ nuôi một người. Đó là lý do họ ít khi ăn gia cầm.",
+        "Thứ ba: tsampa. Bột lúa mạch rang. Đây là thực phẩm định danh người Tạng. Trong cuộc khởi nghĩa 1959, báo lưu vong gửi thư đến 'tất cả những người ăn tsampa' — po mi tsamsey — để kêu gọi đoàn kết. Trong các cuộc biểu tình 2008, người ta gọi nó là Tsampa Revolution. Bột này không chỉ là thức ăn. Nó là bản sắc.",
+        "Ăn tsampa đúng cách: cho một ít bột vào bát, rót trà bơ, dùng ngón trỏ xoay đều trong bát, vo thành viên nhỏ bằng ngón tay cái, búng vào miệng. Không dùng đũa. Không dùng thìa. Dùng tay. Hôm nay quý khách chưa cần làm đúng — nhưng nếu muốn thử, tôi sẽ hướng dẫn."
+      ],
+      "action": "HDV không ngồi ăn ngay. Đứng lên, giới thiệu bữa ăn như một nghi thức."
+    },
+    {
+      "id": "d1-s6",
+      "heading": "Storytelling moment đỉnh cao ngày 1 — Potala về đêm",
+      "timing": "Sau bữa tối, nếu đoàn còn sức, dừng ở quảng trường Potala (chỉ ngắm bên ngoài, không vào trong)",
+      "body": [
+        "Quý khách nhìn lên đồi phía trước. Cái toà nhà sáng đèn đỏ vàng kia là Cung điện Potala. Nó cao 117 mét, rộng 400 mét, 1.000 phòng — và nó được xây trên đỉnh đồi Marpo Ri, ở độ cao 3.700 mét. Đó là cung điện cao nhất thế giới.",
+        "Nhưng tối nay, tôi không kể quý khách nghe về lịch sử 1.400 năm của nó. Tối nay, tôi chỉ muốn quý khách nhìn nó — và biết rằng trong 9 ngày tới, chúng ta sẽ đi vào trong đó. Chúng ta sẽ đi qua những hành lang mà các đời Đạt Lai Lạt Ma đã đi. Chúng ta sẽ đứng trong những căn phòng nơi các quyết định định hình cả một dân tộc đã được đưa ra.",
+        "Nhưng không phải hôm nay. Hôm nay, chúng ta chỉ nhìn nó từ xa — như cách người ta nhìn một ngôi sao trước khi biết tên nó.",
+        "Tối nay, nếu quý khách tỉnh giấc lúc 3 giờ sáng vì đau đầu hoặc khó thở — đừng sợ. Đó là cơ thể quý khách đang nói: 'Tôi đang học.' Người Tây Tạng tin rằng khi một người mới đến Lhasa, các vị thần địa phương đang kiểm tra xem người đó có xứng đáng nhận phước lành hay không. Hãy uống nước ấm, thở chậm, và nghĩ về điều gì đã đưa quý khách đến đây. Câu trả lời đó sẽ là ngọn đèn dẫn đường cho cả hành trình.",
+        "Ngủ ngon. Mai chúng ta đi tìm cội nguồn."
+      ],
+      "action": "Tối đa 20 phút, về khách sạn trước 22:00."
+    }
+  ],
+  "checklist": [
+    { "id": "d1-c1", "text": "Có mặt đủ người tại SGN trước 04:30" },
+    { "id": "d1-c2", "text": "Đủ Khata cho toàn đoàn + 2 cái dự phòng" },
+    { "id": "d1-c3", "text": "Phân phòng khách sạn dưới 15 phút, nhắc khách KHÔNG tắm nước nóng tối nay" },
+    { "id": "d1-c4", "text": "Thông báo số hotline khẩn cấp trước khi khách đi ngủ" },
+    { "id": "d1-c5", "text": "Không để đoàn đứng ngắm Potala quá 20 phút — về trước 22:00" }
+  ]
+}
