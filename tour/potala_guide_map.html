@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sơ đồ hướng dẫn tham quan — Cung điện Potala | Tour Tây Tạng 9N8Đ</title>
+<style>
+:root{
+  --bg-dark:#0f1015; --bg-2:#151821; --bg-3:#1c2029;
+  --red:#6a1b22; --red-lt:#8f2530;
+  --gold:#dfb360; --gold-lt:#fce7b4; --gold-dim:#a8854a;
+  --accent:#2e6074; --accent-lt:#4a8fa8;
+  --text:#f1f2f6; --text-dim:#a9b0bd; --line:#2b303c;
+  --white-p:#efe7d6; --ok:#5fa87a; --warn:#d98b3a; --danger:#c9534a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg-dark);
+  background-image:radial-gradient(ellipse at 50% 0%, rgba(106,27,34,.22) 0%, rgba(15,16,21,1) 65%);
+  color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-size:15px; line-height:1.65; min-height:100vh;
+}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;color:var(--gold-lt);margin:0 0 .5em}
+a{color:var(--accent-lt)}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(180deg,rgba(15,16,21,.98),rgba(15,16,21,.92));
+  border-bottom:1px solid var(--line);backdrop-filter:blur(6px);
+}
+.hd-top{display:flex;align-items:center;gap:14px;padding:10px 16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;line-height:1.2;margin-right:auto}
+.brand b{font-family:Georgia,serif;font-size:19px;color:var(--gold-lt);letter-spacing:.5px}
+.brand small{color:var(--text-dim);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.modewrap{display:flex;background:var(--bg-3);border:1px solid var(--line);border-radius:99px;padding:3px}
+.modewrap button{
+  border:0;background:transparent;color:var(--text-dim);font:inherit;font-size:13px;
+  padding:6px 14px;border-radius:99px;cursor:pointer;white-space:nowrap
+}
+.modewrap button.on{background:var(--gold);color:#1a1409;font-weight:600}
+#search{
+  background:var(--bg-3);border:1px solid var(--line);color:var(--text);
+  padding:7px 12px;border-radius:8px;font:inherit;font-size:13px;width:200px
+}
+#search::placeholder{color:#6e7686}
+.tabs{display:flex;gap:2px;padding:0 12px;overflow-x:auto}
+.tabs button{
+  border:0;border-bottom:2px solid transparent;background:transparent;color:var(--text-dim);
+  font:inherit;font-size:13.5px;padding:9px 14px;cursor:pointer;white-space:nowrap
+}
+.tabs button.on{color:var(--gold-lt);border-bottom-color:var(--gold)}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:1560px;margin:0 auto;padding:16px}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);gap:16px;align-items:start}
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:14px}
+.card>.hd{padding:11px 15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card>.hd h3{margin:0;font-size:15px}
+.card>.bd{padding:15px}
+
+/* ---------- MAP ---------- */
+.maptools{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.btn{
+  background:var(--bg-3);border:1px solid var(--line);color:var(--text-dim);
+  font:inherit;font-size:12.5px;padding:5px 11px;border-radius:7px;cursor:pointer
+}
+.btn:hover{border-color:var(--gold-dim);color:var(--gold-lt)}
+.btn.on{background:var(--gold);border-color:var(--gold);color:#1a1409;font-weight:600}
+svg#map{display:block;width:100%;height:auto;background:linear-gradient(180deg,#10131b 0%,#161a24 55%,#12151c 100%);border-radius:0 0 13px 13px}
+.pin{cursor:pointer}
+.pin .dot{fill:var(--red-lt);stroke:var(--gold);stroke-width:1.6;transition:all .18s}
+.pin .num{fill:#fff;font:600 11px "Segoe UI",sans-serif;text-anchor:middle;pointer-events:none}
+.pin:hover .dot{fill:var(--gold);stroke:#fff}
+.pin:hover .num{fill:#1a1409}
+.pin.sel .dot{fill:var(--gold);stroke:#fff;stroke-width:2.4}
+.pin.sel .num{fill:#1a1409}
+.pin.key .dot{stroke:var(--gold-lt);stroke-width:2.6;stroke-dasharray:none}
+.pin.dim{opacity:.22}
+.chip rect{fill:rgba(248,250,252,.93);stroke:rgba(0,0,0,.15)}
+.chip text{fill:#1a1d24;font:500 11.5px "Segoe UI",sans-serif;dominant-baseline:middle}
+.chip.hide{display:none}
+.pin.sel + .chip rect,.chip.selchip rect{fill:var(--gold-lt);stroke:var(--gold)}
+.routeline{fill:none;stroke:var(--gold);stroke-width:2.2;stroke-dasharray:6 6;opacity:.55}
+.korapath{fill:none;stroke:var(--accent-lt);stroke-width:1.6;stroke-dasharray:3 7;opacity:.5}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:10px 15px;border-top:1px solid var(--line);font-size:12.5px;color:var(--text-dim)}
+.legend span{display:flex;align-items:center;gap:6px}
+.sw{width:13px;height:13px;border-radius:3px;display:inline-block}
+
+/* ---------- LIST RAIL ---------- */
+.rail{max-height:none;overflow:visible}
+.rail ol{list-style:none;margin:0;padding:0}
+.rail li{
+  display:flex;gap:11px;align-items:flex-start;padding:9px 15px;cursor:pointer;
+  border-bottom:1px solid rgba(43,48,60,.6)
+}
+.rail li:hover{background:rgba(223,179,96,.07)}
+.rail li.sel{background:rgba(223,179,96,.14);box-shadow:inset 3px 0 0 var(--gold)}
+.rail li.hidden{display:none}
+.rail .idx{
+  flex:0 0 26px;height:26px;border-radius:50%;background:var(--bg-3);border:1px solid var(--gold-dim);
+  color:var(--gold);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center
+}
+.rail li.sel .idx{background:var(--gold);color:#1a1409;border-color:var(--gold)}
+.rail .nm{font-size:14px;line-height:1.35}
+.rail .sub{font-size:11.5px;color:var(--text-dim)}
+.rail .dur{margin-left:auto;font-size:11.5px;color:var(--gold-dim);white-space:nowrap;padding-top:3px}
+
+/* ---------- PANEL ---------- */
+.pn-head{padding:16px 18px;border-bottom:1px solid var(--line)}
+.pn-kicker{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim)}
+.pn-head h2{font-size:22px;margin:4px 0 5px;line-height:1.25}
+.pn-alt{font-size:13px;color:var(--text-dim)}
+.pn-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.tag{font-size:11.5px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--text-dim);background:var(--bg-3)}
+.tag.t-gold{border-color:var(--gold-dim);color:var(--gold)}
+.tag.t-red{border-color:#7a3038;color:#e59aa0;background:rgba(106,27,34,.28)}
+.tag.t-blue{border-color:#2e6074;color:#8fc7db;background:rgba(46,96,116,.22)}
+.pn-body{padding:16px 18px}
+.sec{margin-bottom:18px}
+.sec>h4{
+  font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);
+  margin:0 0 9px;padding-bottom:6px;border-bottom:1px dashed rgba(223,179,96,.3);font-family:inherit
+}
+.sec ul{margin:0;padding-left:18px}
+.sec li{margin-bottom:6px}
+.script{
+  background:linear-gradient(180deg,rgba(106,27,34,.16),rgba(106,27,34,.06));
+  border-left:3px solid var(--red-lt);border-radius:0 10px 10px 0;padding:13px 15px;font-size:14.5px
+}
+.script p{margin:0 0 11px}
+.script p:last-child{margin-bottom:0}
+.script b{color:var(--gold-lt)}
+.script .stage{display:block;color:var(--accent-lt);font-size:12.5px;font-style:italic;margin-bottom:9px}
+.bridge{margin-top:11px;padding-top:10px;border-top:1px dashed rgba(223,179,96,.3);font-size:14px;color:var(--gold-lt)}
+.bridge em{color:var(--gold-dim);font-style:normal;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;display:block;margin-bottom:4px}
+.ops{background:rgba(46,96,116,.12);border:1px solid rgba(46,96,116,.45);border-radius:10px;padding:12px 14px}
+.ops ul{padding-left:17px;margin:0}
+.stand{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px}
+.stand div{margin-bottom:5px}
+.stand div:last-child{margin-bottom:0}
+.stand b{color:var(--gold)}
+.hdv-only{display:none}
+body.mode-hdv .hdv-only{display:block}
+.toggle-script{
+  width:100%;margin-top:10px;background:var(--bg-3);border:1px dashed var(--gold-dim);color:var(--gold);
+  font:inherit;font-size:13px;padding:8px;border-radius:8px;cursor:pointer
+}
+.toggle-script:hover{background:rgba(223,179,96,.12)}
+.pn-nav{display:flex;gap:9px;padding:0 18px 18px}
+.pn-nav button{flex:1;background:var(--bg-3);border:1px solid var(--line);color:var(--text);font:inherit;font-size:13px;padding:9px;border-radius:8px;cursor:pointer}
+.pn-nav button:hover{border-color:var(--gold-dim);color:var(--gold-lt)}
+.pn-nav button:disabled{opacity:.35;cursor:default}
+
+/* ---------- STATIC PAGES ---------- */
+.page{display:none}
+.page.on{display:block}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.rule{border-left:3px solid var(--gold-dim);padding:2px 0 2px 13px;margin-bottom:15px}
+.rule b{display:block;color:var(--gold-lt);font-size:14.5px;margin-bottom:2px}
+.rule.r-danger{border-left-color:var(--danger)}
+.rule.r-danger b{color:#f0a49d}
+.rule.r-warn{border-left-color:var(--warn)}
+.rule.r-warn b{color:#f0c08a}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--gold);font-weight:600;font-size:12px;letter-spacing:1.2px;text-transform:uppercase}
+tr:hover td{background:rgba(223,179,96,.05)}
+.tl{margin:0;padding:0;list-style:none}
+.tl li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(43,48,60,.6)}
+.tl .clock{flex:0 0 92px;color:var(--gold);font-variant-numeric:tabular-nums;font-size:13.5px;font-weight:600}
+.tl .bar{flex:0 0 8px;border-radius:4px;background:var(--gold-dim)}
+.tl .txt{flex:1}
+.tl .txt b{display:block;font-size:14.5px;color:var(--text)}
+.tl .txt span{font-size:12.5px;color:var(--text-dim)}
+.qa{margin-bottom:16px;background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.qa b{color:#f0a49d;display:block;margin-bottom:6px}
+.qa .say{border-left:3px solid var(--red-lt);padding-left:11px;margin-top:8px;font-size:14px;color:var(--gold-lt)}
+footer{padding:26px 16px 40px;text-align:center;color:#5c6472;font-size:12.5px}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr}
+  .brand b{font-size:16px}
+  #search{width:130px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  header,.maptools,.pn-nav,.toggle-script,.legend,.tabs{display:none!important}
+  .card{border-color:#bbb;background:#fff}
+  .page{display:block!important}
+  .grid{grid-template-columns:1fr}
+  h1,h2,h3,h4,.sec>h4,.pn-kicker{color:#6a1b22!important}
+  .script{background:#f7f3ea;color:#000}
+  .script b,.bridge,.stand b{color:#6a1b22!important}
+  .hdv-only{display:block!important}
+  .rail li{page-break-inside:avoid}
+}
+</style>
+</head>
+<body class="mode-hdv">
+
+<header>
+  <div class="hd-top">
+    <div class="brand">
+      <b>CUNG ĐIỆN POTALA — SƠ ĐỒ HƯỚNG DẪN THAM QUAN</b>
+      <small>Tour Tây Tạng Huyền Bí 9N8Đ · Ngày 8 · Marpo Ri 3.700m</small>
+    </div>
+    <input id="search" type="search" placeholder="Tìm điểm tham quan…" autocomplete="off">
+    <div class="modewrap">
+      <button id="m-hdv" class="on">Chế độ HDV</button>
+      <button id="m-khach">Chế độ Khách</button>
+    </div>
+  </div>
+  <div class="tabs">
+    <button data-page="map" class="on">Sơ đồ &amp; thuyết minh</button>
+    <button data-page="rules">Nguyên tắc tham quan</button>
+    <button data-page="time">Timeline 2 giờ</button>
+    <button data-page="cases">Xử lý tình huống</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ PAGE: MAP ============ -->
+<div class="page on" id="page-map">
+  <div class="grid">
+    <div>
+      <div class="card">
+        <div class="hd">
+          <h3>Sơ đồ lộ trình một chiều · Nam → Bắc</h3>
+          <div class="maptools">
+            <button class="btn on" id="btn-labels">Nhãn tên</button>
+            <button class="btn" id="btn-play">▶ Chạy lộ trình</button>
+          </div>
+        </div>
+        <svg id="map" viewBox="0 0 1000 720" role="img" aria-label="Sơ đồ cung điện Potala">
+          <defs>
+            <linearGradient id="gHill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#54463a"/><stop offset="100%" stop-color="#2d2721"/>
+            </linearGradient>
+            <linearGradient id="gWhite" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f4ede0"/><stop offset="100%" stop-color="#cfc3ad"/>
+            </linearGradient>
+            <linearGradient id="gRed" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#8f2530"/><stop offset="100%" stop-color="#5d161d"/>
+            </linearGradient>
+            <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f6dc9b"/><stop offset="100%" stop-color="#c08f34"/>
+            </linearGradient>
+            <linearGradient id="gLake" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3b7f96"/><stop offset="100%" stop-color="#1f4a5c"/>
+            </linearGradient>
+          </defs>
+
+          <!-- sky glow -->
+          <ellipse cx="520" cy="230" rx="380" ry="180" fill="rgba(223,179,96,.05)"/>
+
+          <!-- Chakpori hill (west) -->
+          <path d="M20 620 L110 415 L205 620 Z" fill="url(#gHill)" opacity=".85"/>
+          <path d="M110 415 L110 388" stroke="#8fc7db" stroke-width="2"/>
+          <circle cx="110" cy="384" r="4" fill="var(--gold)"/>
+          <text x="112" y="600" fill="#7b8494" font-size="12">Dược Vương Sơn (Chakpori)</text>
+
+          <!-- Lukhang lake + park (north/behind) -->
+          <ellipse cx="855" cy="235" rx="105" ry="52" fill="url(#gLake)" opacity=".9"/>
+          <ellipse cx="855" cy="228" rx="105" ry="52" fill="none" stroke="#5fa0b8" stroke-width="1" opacity=".5"/>
+          <rect x="833" y="196" width="44" height="30" rx="3" fill="#7d2a30" stroke="var(--gold-dim)"/>
+          <path d="M828 196 L855 180 L882 196 Z" fill="url(#gGold)"/>
+          <text x="760" y="310" fill="#7b8494" font-size="12">Công viên Long Vương Đàm</text>
+
+          <!-- Marpo Ri hill -->
+          <path d="M215 625 L285 495 L350 425 L740 425 L805 500 L880 625 Z" fill="url(#gHill)"/>
+          <path d="M215 625 L285 495 L350 425 L520 425 L520 625 Z" fill="rgba(0,0,0,.16)"/>
+
+          <!-- Shol village terrace -->
+          <rect x="300" y="560" width="330" height="62" rx="4" fill="#3b352c" stroke="#584f42"/>
+          <g fill="#d8cdb6" opacity=".85">
+            <rect x="315" y="576" width="52" height="34" rx="2"/>
+            <rect x="378" y="571" width="60" height="39" rx="2"/>
+            <rect x="450" y="578" width="48" height="32" rx="2"/>
+            <rect x="510" y="573" width="66" height="37" rx="2"/>
+            <rect x="586" y="580" width="34" height="30" rx="2"/>
+          </g>
+          <g fill="#6a1b22" opacity=".8">
+            <rect x="315" y="571" width="52" height="6"/><rect x="378" y="566" width="60" height="6"/>
+            <rect x="450" y="573" width="48" height="6"/><rect x="510" y="568" width="66" height="6"/>
+            <rect x="586" y="575" width="34" height="6"/>
+          </g>
+
+          <!-- palace terrace -->
+          <path d="M338 425 L752 425 L764 400 L326 400 Z" fill="#b9ae97"/>
+
+          <!-- White Palace — east wing -->
+          <path d="M594 296 L740 296 L752 400 L584 400 Z" fill="url(#gWhite)" stroke="#b3a68d"/>
+          <!-- White Palace — west wing -->
+          <path d="M352 336 L444 336 L438 400 L340 400 Z" fill="url(#gWhite)" stroke="#b3a68d"/>
+          <!-- Red Palace -->
+          <path d="M452 226 L590 226 L602 400 L440 400 Z" fill="url(#gRed)" stroke="#431016"/>
+          <!-- red band on white wings -->
+          <rect x="592" y="296" width="150" height="16" fill="#6a1b22" opacity=".85"/>
+          <rect x="351" y="336" width="94" height="13" fill="#6a1b22" opacity=".85"/>
+          <!-- golden roofs -->
+          <path d="M446 226 L470 200 L512 200 L522 226 Z" fill="url(#gGold)"/>
+          <path d="M524 226 L546 196 L586 196 L596 226 Z" fill="url(#gGold)"/>
+          <path d="M600 296 L618 276 L652 276 L660 296 Z" fill="url(#gGold)"/>
+          <!-- windows -->
+          <g fill="#241b16">
+            <rect x="466" y="256" width="15" height="21"/><rect x="496" y="256" width="15" height="21"/>
+            <rect x="526" y="256" width="15" height="21"/><rect x="556" y="256" width="15" height="21"/>
+            <rect x="464" y="300" width="16" height="23"/><rect x="497" y="300" width="16" height="23"/>
+            <rect x="530" y="300" width="16" height="23"/><rect x="563" y="300" width="16" height="23"/>
+            <rect x="462" y="348" width="17" height="25"/><rect x="498" y="348" width="17" height="25"/>
+            <rect x="534" y="348" width="17" height="25"/><rect x="570" y="348" width="17" height="25"/>
+            <rect x="612" y="326" width="15" height="21"/><rect x="646" y="326" width="15" height="21"/>
+            <rect x="680" y="326" width="15" height="21"/><rect x="714" y="326" width="15" height="21"/>
+            <rect x="614" y="362" width="15" height="22"/><rect x="649" y="362" width="15" height="22"/>
+            <rect x="684" y="362" width="15" height="22"/><rect x="719" y="362" width="15" height="22"/>
+            <rect x="366" y="362" width="14" height="21"/><rect x="396" y="362" width="14" height="21"/>
+            <rect x="426" y="362" width="14" height="21"/>
+          </g>
+
+          <!-- zigzag ramp -->
+          <path id="ramp" d="M596 612 L706 586 L604 556 L712 528 L610 500 L718 470 L724 432"
+                fill="none" stroke="#c9bda2" stroke-width="9" stroke-linejoin="round" opacity=".9"/>
+          <path d="M596 612 L706 586 L604 556 L712 528 L610 500 L718 470 L724 432"
+                fill="none" stroke="#7d735f" stroke-width="1" stroke-dasharray="4 6"/>
+
+          <!-- square -->
+          <rect x="300" y="630" width="470" height="76" rx="6" fill="#22262f" stroke="#333a47"/>
+          <rect x="527" y="636" width="7" height="64" fill="#5b6270"/>
+          <text x="313" y="700" fill="#6d7583" font-size="11.5">Quảng trường Potala · 布达拉宫广场</text>
+
+          <!-- kora path -->
+          <path class="korapath" d="M250 645 C170 560 200 400 360 356 C520 312 700 320 800 380 C900 440 900 580 800 646"/>
+          <text x="196" y="360" fill="#5f8fa3" font-size="11" transform="rotate(-58 196 360)">Vòng kora ngoài · thuận chiều kim đồng hồ</text>
+
+          <!-- route + pins injected by JS -->
+          <path id="routeline" class="routeline" d=""/>
+          <g id="pins"></g>
+          <g id="chips"></g>
+        </svg>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--red-lt);border:1.5px solid var(--gold)"></i> Điểm dừng thuyết minh</span>
+          <span><i class="sw" style="background:var(--gold)"></i> Điểm đang chọn</span>
+          <span><i class="sw" style="background:url(#gGold);background:#c08f34"></i> Mái vàng / linh tháp</span>
+          <span><i class="sw" style="background:#3b7f96"></i> Hồ Long Vương Đàm</span>
+          <span><i class="sw" style="background:#c9bda2"></i> Đường dốc zigzag</span>
+        </div>
+      </div>
+
+      <div class="card rail" style="margin-top:16px">
+        <div class="hd"><h3>Trình tự 15 chặng</h3><span style="margin-left:auto;font-size:12px;color:var(--text-dim)">Bấm để mở nội dung · phím ← →</span></div>
+        <ol id="rail"></ol>
+      </div>
+    </div>
+
+    <div class="card" id="panel" style="position:sticky;top:104px"></div>
+  </div>
+</div>
+
+<!-- ============ PAGE: RULES ============ -->
+<div class="page" id="page-rules">
+  <div class="card"><div class="bd">
+    <h2>Nguyên tắc tham quan Potala — đọc trước khi xuất phát</h2>
+    <p style="color:var(--text-dim);margin-top:-4px">Potala là điểm có <b style="color:var(--gold)">kỷ luật vận hành ngặt nhất toàn tour</b>. Sai một khâu là mất cả buổi tham quan, không xin lại được. Phần này HDV phải thuộc, và phải brief cho khách <b style="color:var(--gold)">từ tối hôm trước</b>, không brief tại cổng.</p>
+
+    <div class="cols">
+      <div>
+        <h3>1. Vé &amp; giờ vào — không có ngoại lệ</h3>
+        <div class="rule r-danger"><b>Vé gắn với hộ chiếu từng người</b>Vé Potala đặt trước theo tên + số hộ chiếu. Người trong vé phải khớp người vào cổng. Khách đổi phòng, đổi tên, quên hộ chiếu ở khách sạn = không vào được, không ai giải quyết được.</div>
+        <div class="rule r-danger"><b>Slot giờ cố định — trễ là mất lượt</b>Mỗi đoàn có một khung giờ vào cửa ấn định. Đến muộn quá khung giờ, hệ thống khoá vé. Không đổi được sang khung sau, không hoàn tiền. Đây là lý do Potala luôn là điểm khởi hành sớm nhất trong ngày.</div>
+        <div class="rule r-warn"><b>Giới hạn 1 giờ trong nội cung</b>Tính từ lúc qua cổng vào khu điện thờ. Có nhân viên quản lý bấm giờ và nhắc đoàn di chuyển. HDV phải tự cắt nội dung, đừng để bị nhắc trước mặt khách.</div>
+        <div class="rule"><b>Số lượt khách/ngày có hạn</b>Lượng vé bán ra mỗi ngày bị giới hạn để bảo vệ kết cấu công trình. Không có chuyện "mua thêm vé tại chỗ" cho khách phát sinh.</div>
+      </div>
+
+      <div>
+        <h3>2. An ninh &amp; đồ mang theo</h3>
+        <div class="rule r-danger"><b>Cấm mang chất lỏng qua cổng an ninh</b>Nước, nước ngọt, bình giữ nhiệt có nước — bị giữ lại hoặc bắt đổ. Uống đủ nước <i>trước</i> khi vào cổng. Đây là chi tiết khách hay bức xúc nhất, phải nói trước.</div>
+        <div class="rule r-danger"><b>Cấm dao, bật lửa, bình xịt, gậy tự sướng</b>Kiểm tra như sân bay: soi hành lý + quét người. Khách để dao gọt hoa quả trong túi là mất thời gian cả đoàn.</div>
+        <div class="rule r-warn"><b>Không WC sau cổng an ninh cho tới khi lên tới sân Đức Dương Hạ</b>WC cuối cùng ở khu quảng trường / khu Tuyết Thành. Sau đó là hơn 300 bậc leo. Bắt buộc dừng WC tập thể trước khi lên dốc.</div>
+        <div class="rule"><b>Túi lớn, ba lô cỡ lớn</b>Nên để trên xe. Chỉ mang túi nhỏ + hộ chiếu + máy ảnh.</div>
+      </div>
+
+      <div>
+        <h3>3. Ứng xử trong cung</h3>
+        <div class="rule r-danger"><b>Tuyệt đối không chụp ảnh trong các điện thờ</b>Đây không phải quy định mềm. Camera có người giám sát, vi phạm bị xoá ảnh, nặng thì mời ra ngoài và đoàn bị ghi nhận. Chụp thoải mái ở sân ngoài, hành lang lộ thiên, mái, quảng trường.</div>
+        <div class="rule r-warn"><b>Bỏ mũ, không kính râm trong điện</b>Đội mũ vào điện thờ là bất kính. Nhắc khách trước khi qua cửa Đông Đại Môn.</div>
+        <div class="rule r-warn"><b>Trang phục kín vai và đầu gối</b>Không quần đùi, váy ngắn, áo hai dây. Nhắc từ tối hôm trước khi khách chuẩn bị đồ.</div>
+        <div class="rule"><b>Đi thuận chiều kim đồng hồ</b>Toàn bộ đường tham quan trong cung và vòng kora ngoài đều đi thuận chiều kim đồng hồ. Đi ngược là lỗi nghi lễ nặng với người hành hương.</div>
+        <div class="rule"><b>Không chỉ tay vào tượng, không quay lưng vào tượng để chụp</b>Muốn chỉ, dùng cả bàn tay ngửa. Không sờ vào tượng, thangka, bảo tháp, không bước qua ngưỡng cửa gỗ (bước qua, không giẫm lên).</div>
+        <div class="rule"><b>Tiền cúng dường</b>Nếu khách muốn cúng, để tiền lẻ vào khay/hòm, không đặt lên tượng. Chuẩn bị sẵn tiền lẻ mệnh giá 1 tệ từ trước.</div>
+      </div>
+
+      <div>
+        <h3>4. Sức khoẻ độ cao</h3>
+        <div class="rule r-warn"><b>Hơn 300 bậc, chênh cao ~130m, ở 3.700m</b>Đây là bài leo nặng nhất trong khu vực Lhasa. Chia làm 3 chặng nghỉ, mỗi chặng dừng 2–3 phút. Nguyên tắc: <i>đi chậm hơn tốc độ bạn nghĩ là chậm</i>.</div>
+        <div class="rule r-warn"><b>Không vừa leo vừa nói</b>Với cả khách lẫn HDV. Thuyết minh chỉ diễn ra khi đã đứng lại thở đều. Đây là lý do sơ đồ này cắt các điểm dừng đúng ở chiếu nghỉ.</div>
+        <div class="rule"><b>Khách có tiền sử tim mạch / cao huyết áp</b>Đi cạnh HDV hoặc trợ lý, mang theo thuốc trong túi áo chứ không trong ba lô. Có phương án ngồi chờ ở sân Đức Dương Hạ nếu không lên nổi phần điện thờ.</div>
+      </div>
+
+      <div>
+        <h3>5. Chủ đề nhạy cảm</h3>
+        <div class="rule r-danger"><b>Không bàn chính trị trong khuôn viên</b>Trong cung luôn có nhân viên quản lý và hướng dẫn viên địa phương. Không thảo luận về chính trị Tây Tạng, không bình luận về vị Đạt Lai Lạt Ma hiện tại, không phát tán hình ảnh liên quan.</div>
+        <div class="rule"><b>Cách trả lời an toàn khi khách hỏi</b>Chuyển câu hỏi về trục <i>lịch sử — kiến trúc — tôn giáo</i>: "Cái em nắm chắc là phần lịch sử và kiến trúc, em xin kể phần đó. Còn phần thời sự thì mỗi nguồn nói một kiểu, em không dám khẳng định." Nói ngắn, rồi chuyển cảnh ngay.</div>
+        <div class="rule"><b>Nhắc khách trước, không nhắc tại chỗ</b>Brief trên xe khi rời khách sạn. Nhắc tại cổng là đã muộn và tạo cảm giác căng thẳng.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:22px">Checklist HDV — kiểm 5 phút trước khi xuống xe</h3>
+    <table>
+      <tr><th>Mục</th><th>Kiểm gì</th></tr>
+      <tr><td>Hộ chiếu</td><td>Đếm đủ đầu người, từng khách cầm hộ chiếu <b>trên tay</b>, không để trong vali</td></tr>
+      <tr><td>Nước</td><td>Uống hết / để lại trên xe. Nhắc rõ: qua cổng là không mang được</td></tr>
+      <tr><td>WC</td><td>Đi WC tập thể ngay tại quảng trường trước khi vào</td></tr>
+      <tr><td>Trang phục</td><td>Mũ tháo sẵn cầm tay, áo khoác che vai, không quần đùi</td></tr>
+      <tr><td>Máy ảnh</td><td>Nhắc quy tắc: <b>sân ngoài chụp thoải mái, trong điện tuyệt đối không</b></td></tr>
+      <tr><td>Điểm tập hợp</td><td>Chốt 2 điểm: sân Đức Dương Hạ (giữa chặng) và cổng ra phía Bắc (kết thúc)</td></tr>
+      <tr><td>Thuốc</td><td>Khách tim mạch / huyết áp mang thuốc trong túi áo</td></tr>
+      <tr><td>Tiền lẻ</td><td>Đổi sẵn tiền 1 tệ cho khách muốn cúng dường</td></tr>
+    </table>
+  </div></div>
+</div>
+
+<!-- ============ PAGE: TIMELINE ============ -->
+<div class="page" id="page-time">
+  <div class="cols">
+    <div class="card"><div class="bd">
+      <h2>Phương án A — đủ giờ (khoảng 3 giờ tổng)</h2>
+      <p style="color:var(--text-dim);margin-top:-4px">Mốc giờ tính theo slot vào cửa 09:30. Đổi mốc gốc thì trượt cả bảng theo.</p>
+      <ul class="tl" id="tlA"></ul>
+    </div></div>
+
+    <div>
+      <div class="card"><div class="bd">
+        <h2>Phương án B — trễ slot / bị giục</h2>
+        <p style="color:var(--text-dim);margin-top:-4px">Thứ tự cắt bỏ. Cắt từ trên xuống, <b style="color:var(--gold)">không bao giờ cắt hai điểm cuối bảng</b>.</p>
+        <table>
+          <tr><th>Cắt thứ</th><th>Cắt cái gì</th><th>Bù bằng cách nào</th></tr>
+          <tr><td>1</td><td>Tuyết Thành (Shol)</td><td>Kể trên xe khi đi qua, chỉ tay xuống khu nhà trắng dưới chân</td></tr>
+          <tr><td>2</td><td>Dược Vương Sơn</td><td>Đề xuất khách tự đi buổi chiều tự do hoặc sáng hôm sau</td></tr>
+          <tr><td>3</td><td>Điện Thời Luân &amp; Thù Thắng Tam Giới</td><td>Gộp một câu khi đi ngang</td></tr>
+          <tr><td>4</td><td>Nhật Quang Điện</td><td>Kể gộp vào phần Bạch Cung ở sân Đức Dương Hạ</td></tr>
+          <tr><td>5</td><td>Long Vương Đàm</td><td>Chỉ dừng 5 phút chụp ảnh phản chiếu, bỏ phần đi vòng hồ</td></tr>
+          <tr><td style="color:var(--gold)">Không cắt</td><td><b>Pháp Vương Động</b> &amp; <b>Thánh Quán Âm Điện</b></td><td>Đây là hai phòng duy nhất còn lại từ thế kỷ 7. Mất hai phòng này thì cả buổi tham quan mất trục</td></tr>
+          <tr><td style="color:var(--gold)">Không cắt</td><td><b>Linh tháp Đạt Lai thứ 5</b></td><td>Điểm gây choáng thị giác mạnh nhất, khách nhớ lâu nhất</td></tr>
+        </table>
+      </div></div>
+
+      <div class="card" style="margin-top:14px"><div class="bd">
+        <h2>Quy tắc chia thời gian trong 1 giờ nội cung</h2>
+        <p>Một giờ nội cung là ngân sách cứng. Chia sẵn như sau, không ứng biến tại chỗ:</p>
+        <table>
+          <tr><th>Khối</th><th>Ngân sách</th><th>Ghi chú</th></tr>
+          <tr><td>Bạch Cung (Đông Đại Điện + Nhật Quang Điện)</td><td>20 phút</td><td>Đi nhanh, nói ít, để dành sức cho Hồng Cung</td></tr>
+          <tr><td>Hồng Cung — Tây Đại Điện + linh tháp</td><td>25 phút</td><td>Trọng tâm thị giác</td></tr>
+          <tr><td>Pháp Vương Động + Thánh Quán Âm Điện</td><td>12 phút</td><td>Trọng tâm ý nghĩa. Hai phòng nhỏ, hay tắc, phải xếp hàng</td></tr>
+          <tr><td>Dự phòng</td><td>3 phút</td><td>Đếm người, khách tụt lại</td></tr>
+        </table>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PAGE: CASES ============ -->
+<div class="page" id="page-cases">
+  <div class="card"><div class="bd">
+    <h2>Xử lý tình huống tại Potala</h2>
+    <div class="cols">
+      <div>
+        <div class="qa"><b>Khách tụt lại giữa dốc, thở dốc, mặt tái</b>
+          Dừng cả đoàn ở chiếu nghỉ gần nhất — không để đoàn đi tiếp còn khách ở lại một mình. Cho khách ngồi, thở bằng mũi, thở ra dài gấp đôi hít vào. Không cho uống nhiều nước lạnh một lúc. Nếu sau 5 phút không đỡ: cử trợ lý đưa xuống, không ép lên tiếp.
+          <div class="say">"Cả nhà mình dừng đây 3 phút. Không phải vì ai yếu — mà vì ở 3.700m thì đi chậm là đi đúng. Em xin dùng 3 phút này kể luôn chuyện tại sao cung này lại xây trên đúng quả đồi này."</div>
+        </div>
+        <div class="qa"><b>Khách giơ điện thoại chụp trong điện thờ</b>
+          Xử lý <i>ngay và nhẹ</i>, đừng để nhân viên nhắc trước. Bước tới gần, hạ giọng, đưa tay che hướng máy.
+          <div class="say">"Anh/chị cho em xin phép — chỗ này là chỗ duy nhất cấm tuyệt đối. Ra tới sân ngoài em chụp cho cả nhà một kiểu đẹp hơn nhiều. Ở đây mình nhìn bằng mắt thôi ạ."</div>
+        </div>
+        <div class="qa"><b>Nhân viên quản lý giục đoàn đi tiếp</b>
+          Không tranh luận, không dịch lại lời giục cho khách nghe. Gật đầu, chuyển đoàn, và <i>biến việc bị giục thành một ý</i>.
+          <div class="say">"Mình đi tiếp nhé cả nhà. Ở đây người ta giới hạn một tiếng cho mỗi đoàn — không phải để làm khó mình, mà vì mỗi ngày có hàng nghìn người muốn vào đúng cái hành lang này. Cho nên em xin chọn giúp cả nhà: bỏ qua vài phòng, nhưng hai phòng quan trọng nhất thì mình sẽ đứng đủ lâu."</div>
+        </div>
+      </div>
+      <div>
+        <div class="qa"><b>Khách hỏi câu chính trị nhạy cảm ngay trong cung</b>
+          Không trả lời trong khuôn viên. Không tỏ ra né tránh khó chịu — trả lời ngắn, hẹn lại, rồi chuyển cảnh.
+          <div class="say">"Câu này hay, nhưng em xin phép để lát nữa ra ngoài mình nói. Trong này em chỉ kể phần lịch sử và kiến trúc thôi ạ. Bây giờ mời cả nhà nhìn sang bên trái — bức tranh tường kia là cảnh có thật, năm 1652."</div>
+          <div style="margin-top:8px;font-size:13px;color:var(--text-dim)">Ra ngoài rồi: giữ ở mức lịch sử, nói rõ mình không phải nguồn thẩm quyền, không đưa quan điểm cá nhân.</div>
+        </div>
+        <div class="qa"><b>Đoàn bị tách làm hai vì đông người</b>
+          Potala đông tới mức mất đoàn là chuyện thường. Phòng trước: đầu buổi chốt <b>điểm tập hợp cố định</b> — sân Đức Dương Hạ (giữa chặng) và cổng ra phía Bắc (kết thúc). Trợ lý luôn đi cuối đoàn. Đếm người ở mỗi cửa điện, không đếm ở giữa hành lang.
+        </div>
+        <div class="qa"><b>Khách hụt hẫng: "1.000 phòng mà chỉ đi được có mấy phòng?"</b>
+          Đây là hụt hẫng có thật và rất hay gặp. Đừng chống lại nó — hãy dùng nó.
+          <div class="say">"Đúng ạ. Potala có tới cả nghìn gian, mình đi được chưa tới hai chục. Nhưng em xin nói thật: kể cả người Tây Tạng cũng không ai đi hết. Trong Hồng Cung có gần 700 bức tranh tường — mỗi bức nhìn 1 phút thì mất 7 ngày không ngủ. Cho nên hôm nay em không mời cả nhà xem nhiều. Em mời cả nhà chọn <b>một</b> bức tranh, một pho tượng gọi mình — và đứng trước nó 3 phút. Người Tạng xem tranh không phải để hiểu, mà để <b>gặp</b>."</div>
+        </div>
+        <div class="qa"><b>Trời mưa / tuyết, bậc đá trơn</b>
+          Bậc đá Potala rất trơn khi ướt. Đi sát tường phía trong, bám tay vịn, cấm chạy, cấm vừa đi vừa nhìn điện thoại. Khách lớn tuổi đi kèm một người. Xuống dốc nguy hiểm hơn lên dốc — nhắc lại lần nữa khi bắt đầu đường xuống phía Bắc.
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+</div>
+
+<footer>
+  Biên soạn cho bộ tài liệu <b>Tour Tây Tạng Huyền Bí 9N8Đ</b> · Ngày 8: Potala — Drak Yerpa — Workshop Thangka<br>
+  File chạy hoàn toàn offline. Nhấn <b>Ctrl+P</b> để in ra bản giấy (tự động bung toàn bộ script).
+</footer>
+
+<script>
+/* =========================================================
+   DỮ LIỆU 15 CHẶNG
+   Sửa nội dung thuyết minh ở đây, phần render bên dưới không cần đụng tới.
+   ========================================================= */
+const PLACES = [
+{
+  id:0, label:"Quảng trường Potala", chipSide:"right", x:540, y:660,
+  vn:"Quảng trường Potala", alt:"布达拉宫广场 · Potala Square", dur:"15 phút", key:false,
+  tags:["Điểm brief","Ảnh chính diện","WC"],
+  bullets:[
+    "Điểm nhìn chính diện đẹp nhất, cũng là nơi brief toàn bộ quy tắc trước khi vào cổng.",
+    "Cung cao <b>117 mét</b>, 13 tầng, trải ngang hơn <b>360 mét</b> theo trục Đông–Tây.",
+    "Xây trên đồi <b>Marpo Ri</b> — Hồng Sơn, đỉnh ở khoảng <b>3.700m</b>. Cung điện còn sử dụng cao nhất thế giới.",
+    "Hơn <b>1.000 gian phòng</b>, khoảng 10.000 điện thờ nhỏ, ước tính 200.000 pho tượng lớn nhỏ.",
+    "UNESCO công nhận năm 1994 — ví dụ nổi bật cuối cùng còn nguyên vẹn của một <b>chính quyền thần quyền</b>.",
+    "Ba màu của cung là ba tầng ý nghĩa: <b>trắng</b> = việc đời, <b>đỏ</b> = việc đạo, <b>vàng</b> = cõi thiêng.",
+    "Góc chụp tốt nhất: đứng lùi về phía Nam quảng trường, buổi sáng ánh nắng đánh thẳng mặt tiền."
+  ],
+  stand:{ where:"Lùi hết về mép Nam quảng trường, xếp đoàn thành hình vòng cung quay lưng về phía cung để khách không phải ngoái cổ.", look:"Chỉ ba khối màu theo thứ tự: khối trắng hai bên → khối đỏ ở giữa → mái vàng trên đỉnh.", photo:"Ảnh toàn cảnh chính diện. Nếu có nắng sớm, cho khách chụp trước khi brief — chụp xong thì khách mới chịu nghe." },
+  script:[
+    "<span class='stage'>Xếp đoàn xong, để khách nhìn lên 10 giây rồi mới nói.</span>",
+    "Cả nhà nhìn lên. Cái công trình trước mặt mình cao <b>117 mét</b>, mười ba tầng, trải ngang hơn <b>360 mét</b> — và nó không đứng trên mặt đất bằng, nó đứng trên đỉnh một quả đồi tên là <b>Marpo Ri</b>, Hồng Sơn, ở độ cao 3.700 mét. Nghĩa là ngay cả cái nền của nó cũng đã cao hơn đỉnh Fansipan.",
+    "Bên trong có hơn một nghìn gian phòng. Khoảng mười nghìn điện thờ nhỏ. Người ta ước tính có tới hai trăm nghìn pho tượng. Hôm nay mình sẽ đi được chưa tới hai chục gian — em nói trước để cả nhà không hụt hẫng.",
+    "Nhưng có một thứ cả nhà có thể đọc được ngay từ đây, không cần vào trong: <b>ba màu</b>. Khối trắng hai bên gọi là <b>Bạch Cung</b> — đó là nơi ở, nơi làm việc, nơi xử việc đời. Khối đỏ ở giữa là <b>Hồng Cung</b> — nơi thờ phụng, nơi đặt bảo tháp của các đời Đạt Lai Lạt Ma, nơi của việc đạo. Và trên cùng là <b>mái vàng</b>. Vàng ở Tây Tạng không phải để khoe giàu — vàng là màu của cõi thiêng.",
+    "Cho nên toàn bộ toà nhà này là một câu nói dựng bằng đá: <b>đời ở dưới, đạo ở giữa, thiêng ở trên</b>. Và người sống trong đó vừa là vua vừa là tu sĩ. Trên thế giới, kiểu công trình như thế này chỉ còn lại đúng một cái. Nó ở ngay trước mặt cả nhà.",
+    "<span class='stage'>Chuyển sang brief quy tắc — xem tab \"Nguyên tắc tham quan\".</span>"
+  ],
+  bridge:"Bây giờ trước khi mình bước qua cổng an ninh, em xin ba phút nói về luật chơi trong đó — vì Potala là nơi khó tính nhất trong cả chuyến đi này.",
+  ops:[
+    "<b>Đây là điểm brief quan trọng nhất buổi.</b> Brief đầy đủ ở đây, vào trong không kịp nói nữa.",
+    "Kiểm hộ chiếu từng người — cầm trên tay, không để trong túi xách chung.",
+    "Nhắc đổ hết nước / để lại trên xe. Nói rõ lý do để khách không bức xúc ở cổng.",
+    "<b>WC tập thể tại đây.</b> Đây là WC cuối trước hơn 300 bậc leo.",
+    "Chốt hai điểm tập hợp: sân Đức Dương Hạ, và cổng ra phía Bắc.",
+    "Cho khách chụp ảnh <i>trước</i> khi brief — chụp rồi mới nghe được."
+  ]
+},
+{
+  id:1, label:"Bia Không Chữ & cổng an ninh", chipSide:"left", x:432, y:612,
+  vn:"Bia Không Chữ & cổng an ninh", alt:"无字碑 · Cổng Pargo Kaling", dur:"10 phút", key:false,
+  tags:["Kiểm soát an ninh","Bia đá cổ"],
+  bullets:[
+    "Trước chân cung có <b>tấm bia không một chữ nào</b>, dựng khoảng năm 1693 khi Hồng Cung hoàn công.",
+    "Người ta nói: công đức của công trình này lớn tới mức không chữ nào ghi cho đủ — nên để trống.",
+    "Gần đó là <b>bia đá Shol (Zhol Doring)</b>, dựng khoảng năm 764 — một trong những tấm bia khắc chữ Tạng cổ nhất còn lại, ghi công một vị tướng thời Tùng Tán Cán Bố về sau.",
+    "Cổng chính phía Tây tên <b>Pargo Kaling</b>. Kiểm tra an ninh nghiêm ngặt kiểu sân bay.",
+    "Từ cổng này trở đi: <b>không chất lỏng, không dao, không bật lửa, không gậy tự sướng</b>.",
+    "Từ đây trở đi cũng <b>không còn WC</b> cho tới khi lên tới sân Đức Dương Hạ."
+  ],
+  stand:{ where:"Đứng chếch bên tấm bia không chữ, để khách vừa nhìn bia vừa thấy được dốc lên phía sau.", look:"Chỉ vào mặt bia trống trơn — đây là chi tiết khách sẽ nhớ.", photo:"Chụp được. Nhưng đừng để khách đứng chắn dòng người xếp hàng vào cổng." },
+  script:[
+    "<span class='stage'>Nói ngắn thôi — đoàn đang chuẩn bị xếp hàng, đừng giữ khách quá lâu.</span>",
+    "Trước khi mình xếp hàng, cả nhà để ý tấm bia đá này. Nhìn kỹ đi ạ. Nó <b>không có một chữ nào</b>.",
+    "Tấm bia này dựng vào khoảng năm 1693, đúng lúc phần Hồng Cung xây xong. Theo lệ thì bia dựng lên là để khắc công đức — ai xây, xây bao lâu, tốn bao nhiêu. Nhưng người ta để trống.",
+    "Cách giải thích được kể nhiều nhất là: công đức của việc dựng nên toà nhà này lớn tới mức <b>không có chữ nào ghi cho vừa</b>. Cho nên thà để trống. Ở đây, khoảng trống nói to hơn chữ.",
+    "Ngay gần đây còn một tấm bia khác, cổ hơn nhiều — dựng từ khoảng <b>năm 764</b>, tức là hơn 1.200 năm trước, một trong những tấm bia khắc chữ Tạng cổ nhất còn lại tới hôm nay. Nó có mặt ở đây từ trước khi Potala mà mình đang thấy được xây tới gần một nghìn năm.",
+    "<span class='stage'>Chuyển ngay sang nhắc quy tắc an ninh.</span>"
+  ],
+  bridge:"Bây giờ mình qua cổng. Nhắc lại lần cuối: nước để lại, mũ cầm tay, hộ chiếu cầm tay. Qua cửa này là không quay ra được nữa đâu ạ.",
+  ops:[
+    "<b>Xếp hàng theo thứ tự danh sách vé</b> để nhân viên đối chiếu nhanh.",
+    "Đứng cuối hàng, đếm khách qua cửa. Trợ lý đứng đầu hàng đón.",
+    "Khách bị giữ đồ: không tranh cãi, bỏ lại, ghi nhớ để lấy sau nếu có chỗ gửi.",
+    "Nhắc lần cuối về WC — sau điểm này là hơn 300 bậc."
+  ]
+},
+{
+  id:2, label:"Tuyết Thành (Shol)", chipSide:"left", x:352, y:552,
+  vn:"Tuyết Thành — thị trấn dưới chân cung", alt:"雪城 · Shol", dur:"15 phút", key:false,
+  tags:["Đời sống","Nhà in kinh","Có thể cắt"],
+  bullets:[
+    "<b>Shol</b> nghĩa là \"phía dưới\" — cả một thị trấn hành chính nằm gọn dưới chân cung.",
+    "Đây là phần <b>đời</b> của Potala: kho lương, kho vũ khí, chuồng ngựa, xưởng thủ công, nhà ở của quan lại và người hầu.",
+    "Có <b>nhà in kinh</b> khắc mộc bản — nơi kinh sách được in bằng ván gỗ khắc ngược, một trang một tấm ván.",
+    "Có cả <b>nhà lao</b> — nhắc rằng đây từng là một chính quyền thật, có luật, có toà, có nhà giam.",
+    "Ngày nay được phục dựng thành khu bảo tàng ngoài trời, khá vắng vì khách thường vội leo lên.",
+    "Đây là điểm <b>cắt đầu tiên</b> nếu đoàn trễ slot."
+  ],
+  stand:{ where:"Giữa lối đi khu nhà trắng, chọn chỗ có bóng râm — khu này nắng gắt.", look:"Chỉ lên đỉnh cung rồi chỉ xuống chân mình: khoảng cách giữa hai chỗ đó chính là bài giảng.", photo:"Góc chụp ngược lên cung từ dưới khu Shol rất đẹp và ít người biết." },
+  script:[
+    "Cả nhà đang đứng ở một chỗ mà chín trên mười đoàn khách đi lướt qua: khu <b>Tuyết Thành</b>, tiếng Tạng là <b>Shol</b> — nghĩa đơn giản là \"phía dưới\".",
+    "Nãy giờ mình toàn nói về cung điện trên cao. Nhưng một cung điện không tự sống được. Nó cần người nấu ăn, người dệt vải, người chăn ngựa, người chép kinh, người ghi sổ thuế. Tất cả những người đó sống ở đây, dưới chân đồi.",
+    "Trong khu này từng có kho lương, kho vũ khí, chuồng ngựa, xưởng thủ công, nhà ở của quan lại. Có một <b>nhà in kinh</b> — in bằng mộc bản, tức là mỗi trang kinh phải khắc ngược lên một tấm ván gỗ, rồi phết mực, rồi ép giấy. Một bộ kinh là hàng nghìn tấm ván. Người ta khắc như thế suốt hàng trăm năm.",
+    "Và có cả một <b>nhà lao</b>. Em nhắc chi tiết này không phải để làm nặng câu chuyện, mà để cả nhà nhớ một điều: đây không phải chỉ là một ngôi chùa lớn. Đây từng là <b>một chính quyền</b> — có thuế, có luật, có toà án, và có nhà giam. Người ngồi trên đỉnh đồi kia vừa là người ban phước, vừa là người ký án.",
+    "Cho nên khi lát nữa mình leo lên, cả nhà thử để ý cái khoảng cách. Từ chỗ mình đứng lên tới nơi ở của Đạt Lai Lạt Ma là hơn ba trăm bậc. Ba trăm bậc đó không chỉ là chiều cao. Nó là <b>khoảng cách xã hội</b>, được đóng cứng vào đá."
+  ],
+  bridge:"Bây giờ mình đi hết ba trăm bậc đó. Nhưng đi chậm thôi — mình sẽ dừng ba lần, và mỗi lần dừng em sẽ kể một chuyện.",
+  ops:[
+    "<b>Cắt đầu tiên khi thiếu giờ.</b> Nếu cắt, kể phần này trên xe lúc đi qua.",
+    "Khu này nắng và ít bóng râm — không đứng lâu quá 12 phút.",
+    "Đây là chỗ tốt để nhìn lại đoàn, phát hiện sớm khách mệt trước khi vào dốc."
+  ]
+},
+{
+  id:3, label:"Đường dốc zigzag · 3 chặng nghỉ", chipSide:"right", x:668, y:530,
+  vn:"Đường dốc zigzag — ba chặng nghỉ thở", alt:"之字形登山道", dur:"20 phút", key:false,
+  tags:["Điểm nghỉ thở","An toàn"],
+  bullets:[
+    "Hơn <b>300 bậc</b>, chênh cao khoảng <b>130 mét</b>, thực hiện ở độ cao 3.700m.",
+    "Đường bẻ ngoặt hình chữ chi — vừa để giảm độ dốc, vừa là kết cấu phòng thủ.",
+    "Chia làm <b>3 chặng</b>, mỗi chặng dừng 2–3 phút. Mỗi lần dừng gắn với một mẩu chuyện.",
+    "Nguyên tắc: <b>không vừa leo vừa nói</b> — cả HDV lẫn khách.",
+    "Nhịp thở: hít bằng mũi 2 nhịp, thở ra bằng miệng 4 nhịp, bước theo nhịp thở chứ không thở theo nhịp bước.",
+    "Bậc đá <b>rất trơn khi ướt</b>. Trời mưa/tuyết: đi sát tường trong, bám tay vịn."
+  ],
+  stand:{ where:"HDV đi <b>giữa đoàn</b>, trợ lý đi cuối. Không bao giờ để người cuối đoàn đi một mình.", look:"Mỗi chặng nghỉ đều quay đoàn lại nhìn xuống — độ cao tăng dần là phần thưởng cho mỗi chặng.", photo:"Chặng nghỉ 2 có góc nhìn xuống quảng trường rất đẹp. Chặng 3 nhìn được cả thành phố Lhasa." },
+  script:[
+    "<span class='stage'>CHẶNG NGHỈ 1 — sau khoảng 100 bậc.</span>",
+    "Mình dừng đây 3 phút. Cả nhà thở bằng mũi, hít 2 nhịp, thở ra bằng miệng 4 nhịp — thở ra dài gấp đôi hít vào. Ở độ cao này, quy tắc là: <b>đi chậm hơn cái tốc độ mà mình nghĩ là đã chậm rồi</b>.",
+    "Trong lúc thở, cả nhà nhìn con đường mình vừa đi. Nó không đi thẳng, đúng không ạ? Nó bẻ ngoặt liên tục. Lý do thứ nhất là kỹ thuật: bẻ ngoặt thì độ dốc giảm. Lý do thứ hai thực dụng hơn nhiều — <b>đường gấp khúc thì rất khó tấn công</b>. Mỗi khúc quanh là một chỗ có thể chặn.",
+    "<span class='stage'>CHẶNG NGHỈ 2 — quay đoàn nhìn xuống quảng trường.</span>",
+    "Cả nhà quay lại nhìn xuống. Mình mới đi được hai phần ba. Nhưng để ý: người dưới quảng trường đã bé đi rồi.",
+    "Suốt mấy trăm năm, những người leo con dốc này không phải là khách du lịch. Là quan lại lên trình sổ sách. Là sư lên nhận lệnh. Là sứ thần từ Bắc Kinh, từ Mông Cổ, từ Nepal, từ Ấn Độ. Và là <b>người hành hương</b> — có người đi bộ cả nghìn cây số, có người đi bằng cách <b>cứ ba bước lại nằm dài xuống đất một lần</b>, suốt sáu tháng, một năm, để tới được đúng chỗ mình đang đứng.",
+    "Cho nên nếu bây giờ cả nhà thấy mệt — thì cái mệt đó là đúng. Nó nằm trong thiết kế. Người ta không định cho ai lên đây một cách dễ dàng.",
+    "<span class='stage'>CHẶNG NGHỈ 3 — ngay trước cổng, đếm người.</span>",
+    "Còn một đoạn nữa thôi. Cả nhà kiểm lại: mũ tháo ra cầm tay, hộ chiếu vẫn còn, điện thoại cất vào túi. Qua cái cổng phía trên kia là mình bước vào phần <b>trong</b> của Potala. Và trong đó, mình có đúng một tiếng."
+  ],
+  bridge:"Mình lên nốt đoạn cuối. Qua cổng gỗ lớn kia là hết phần leo — em hứa đấy ạ.",
+  ops:[
+    "<b>Chia 3 chặng cứng, không ứng biến.</b> Chặng 1 ~100 bậc, chặng 2 ~200 bậc, chặng 3 sát cổng.",
+    "Mỗi chặng <b>đếm đủ người</b> trước khi đi tiếp.",
+    "Khách mệt: cho ngồi, thở, không uống nhiều nước lạnh một lúc. Quá 5 phút không đỡ → trợ lý đưa xuống.",
+    "Khách tim mạch/huyết áp đi cạnh HDV, thuốc để trong túi áo.",
+    "Trời ướt: đi sát tường trong, bám tay vịn, cấm chạy, cấm vừa đi vừa nhìn điện thoại."
+  ]
+},
+{
+  id:4, label:"Đông Đại Môn", chipSide:"right", x:722, y:436,
+  vn:"Đông Đại Môn", alt:"东大门", dur:"5 phút", key:false,
+  tags:["Cửa vào","Bỏ mũ"],
+  bullets:[
+    "Cổng lớn dẫn vào khu sân trong của Bạch Cung — điểm kết thúc phần leo dốc.",
+    "Hai bên cửa vẽ <b>Tứ Đại Thiên Vương</b>, bốn vị hộ pháp trấn bốn phương.",
+    "Ngưỡng cửa gỗ cao: <b>bước qua, không giẫm lên</b> — giẫm lên ngưỡng cửa là điều kiêng kỵ.",
+    "Từ đây <b>bỏ mũ, bỏ kính râm</b>, hạ giọng nói.",
+    "Đồng hồ một giờ nội cung bắt đầu tính từ khoảng này."
+  ],
+  stand:{ where:"Đứng lệch sang một bên cửa, để dòng người vẫn đi qua được.", look:"Chỉ lên hai bức hộ pháp hai bên cửa.", photo:"Chụp được ở đây — đây là ranh giới cuối cùng còn chụp thoải mái trước khi vào điện." },
+  script:[
+    "Đây là <b>Đông Đại Môn</b>. Hết dốc rồi ạ.",
+    "Cả nhà để ý hai bên cửa — bốn vị mặt mũi dữ tợn, cầm vũ khí, mỗi vị một màu. Đó là <b>Tứ Đại Thiên Vương</b>, bốn vị hộ pháp trấn bốn phương trời. Chức năng của các vị là đứng ở cửa. Chỉ đứng ở cửa thôi. Cái dữ tợn đó không nhắm vào mình — nó nhắm vào những gì mình vô tình mang theo vào trong.",
+    "Ba việc trước khi bước qua. Thứ nhất: <b>bỏ mũ, bỏ kính râm</b>. Thứ hai: cái ngưỡng gỗ dưới chân — mình <b>bước qua</b>, không giẫm lên. Thứ ba: từ đây trở đi mình nói khẽ lại một chút, và <b>tuyệt đối không chụp ảnh trong các gian điện</b>. Ngoài sân thì thoải mái.",
+    "Và một thông tin về thời gian: từ lúc này, đoàn mình có <b>một tiếng</b> trong nội cung. Không phải em giục — đó là quy định để bảo vệ công trình. Cho nên em sẽ chọn giúp cả nhà: có phòng mình đi lướt, nhưng có hai phòng mình sẽ đứng thật lâu."
+  ],
+  bridge:"Mời cả nhà bước qua ngưỡng cửa — chân phải trước cho thuận lệ. Ra tới sân rồi mình đứng lại một chút.",
+  ops:[
+    "<b>Bấm giờ ở đây.</b> Ghi lại giờ vào, ngân sách 60 phút.",
+    "Nhắc bỏ mũ + cấm chụp ảnh <i>lần cuối</i> tại đúng cửa này — nhắc chỗ khác khách quên.",
+    "Đếm người ngay sau cửa, không đếm trước cửa (dòng người chen)."
+  ]
+},
+{
+  id:5, label:"Sân Đức Dương Hạ", chipSide:"right", x:660, y:396,
+  vn:"Sân Đức Dương Hạ", alt:"德阳厦 · Deyangshar", dur:"10 phút", key:false,
+  tags:["Điểm tập hợp","WC","Sân khấu Tạng kịch"],
+  bullets:[
+    "Sân lộ thiên rộng khoảng <b>1.600 m²</b> ngay trước Bạch Cung.",
+    "Đây từng là <b>sân khấu</b>: Tạng kịch (Lhamo) và múa nghi lễ Cham diễn ở đây trong các dịp lễ lớn.",
+    "Đạt Lai Lạt Ma ngồi xem từ ban công phía trên, dân và tăng chúng đứng dưới sân.",
+    "<b>Điểm tập hợp chính thức số 1</b> của đoàn. WC gần nhất sau chặng leo.",
+    "Chỗ tốt nhất để giải thích toàn bộ bố cục cung trước khi vào trong — vì trong điện tối và đông, khó nói dài.",
+    "Chụp ảnh thoải mái ở đây: nền tường trắng, viền đỏ, mái vàng."
+  ],
+  stand:{ where:"Góc sân đối diện mặt tiền Bạch Cung, đứng quay lưng vào tường để khách nhìn thẳng vào công trình.", look:"Chỉ ban công phía trên — chỗ Đạt Lai Lạt Ma ngồi xem kịch. Rồi chỉ xuống nền sân — chỗ dân đứng.", photo:"Đây là điểm chụp ảnh nhóm tốt nhất trong toàn bộ khu nội cung." },
+  script:[
+    "Mình đang đứng ở sân <b>Đức Dương Hạ</b>. Khoảng một nghìn sáu trăm mét vuông, lộ thiên, và nó có một công dụng mà cả nhà chắc không đoán ra: đây là một <b>sân khấu</b>.",
+    "Vào những dịp lễ lớn, ở chính chỗ chân cả nhà đang đứng, người ta diễn <b>Tạng kịch</b> — gọi là Lhamo — và múa nghi lễ đeo mặt nạ. Diễn viên hát bằng một lối hát cổ, kể tích Phật, kể tích vua, kể chuyện thiện ác. Có vở diễn kéo dài <b>cả ngày</b>.",
+    "Cả nhà nhìn lên cái ban công phía trên kia. Đạt Lai Lạt Ma ngồi trên đó xem. Còn dân chúng, tăng chúng thì đứng chật kín dưới sân này.",
+    "Em muốn cả nhà giữ hình ảnh đó lại. Bởi vì lát nữa mình vào trong, cả nhà sẽ thấy rất nhiều vàng, rất nhiều tượng, rất nhiều bảo tháp — và rất dễ nghĩ rằng nơi này chỉ có sự trang nghiêm lạnh lẽo. Không phải. Ở đây từng có <b>tiếng trống, tiếng hát, tiếng cười</b>, có người bán hàng rong, có trẻ con chen lên xem. Potala từng là một nơi <b>sống</b>.",
+    "Trước khi vào, em xin nói nhanh bố cục để trong đó cả nhà khỏi lạc. Mình sẽ đi qua ba lớp. Lớp một: <b>Bạch Cung</b> — nơi ở và làm việc. Lớp hai: <b>Hồng Cung</b> — nơi thờ và nơi đặt bảo tháp. Lớp ba, nằm lọt trong Hồng Cung, là <b>hai gian phòng nhỏ từ thế kỷ 7</b> — hai gian duy nhất còn sót lại từ toà cung điện đầu tiên, hơn một nghìn ba trăm năm trước. Đó là chỗ em muốn cả nhà nhớ nhất."
+  ],
+  bridge:"Cả nhà đi WC nếu cần, chụp ảnh 3 phút, rồi mình tập hợp ngay chỗ này. Vào trong là không dừng lại được nữa.",
+  ops:[
+    "<b>Điểm tập hợp số 1 — chốt rõ với khách.</b> Nếu ai lạc, quay về đây.",
+    "WC ở đây. Nhắc lần nữa — trong khu điện thờ không có.",
+    "Chụp ảnh nhóm tại đây, không hẹn chụp ở chỗ khác vì trong điện cấm.",
+    "<b>Nói phần bố cục 3 lớp ở đây</b>, không nói trong điện (tối, đông, ồn).",
+    "Kiểm giờ: nên rời sân này khi đã dùng không quá 15 phút trong ngân sách 60."
+  ]
+},
+{
+  id:6, label:"Đông Đại Điện (Bạch Cung)", chipSide:"right", x:620, y:352,
+  vn:"Đông Đại Điện — Bạch Cung", alt:"东有寂圆满大殿 · Tsomchen Shar", dur:"15 phút", key:false,
+  tags:["Bạch Cung","Lễ tọa sàng"],
+  bullets:[
+    "Gian lớn nhất của <b>Bạch Cung (Potrang Karpo)</b>, rộng khoảng <b>717 m²</b>.",
+    "Bạch Cung khởi công <b>năm 1645</b> dưới thời <b>Đạt Lai Lạt Ma thứ 5</b>, hoàn thành khoảng 1648.",
+    "Đây là nơi diễn ra <b>lễ tọa sàng</b> — lễ chính thức đưa một Đạt Lai Lạt Ma lên ngôi.",
+    "Cũng là nơi tiếp sứ thần, xử việc hành chính, ban hành mệnh lệnh — phần <b>đời</b> của cung điện.",
+    "Đạt Lai thứ 5 (Ngawang Lobsang Gyatso) là người thống nhất Tây Tạng về một mối và dời trung tâm quyền lực về đây — nên được gọi là <b>\"Đại Ngũ Thế\"</b>.",
+    "Cột gỗ lớn, thảm dệt, tranh tường dày đặc — trần thấp, ánh sáng vàng từ đèn bơ."
+  ],
+  stand:{ where:"Dừng ngay sát cửa vào, để khách vào hết rồi mới nói — nói ngắn, vì gian này hay tắc người.", look:"Chỉ ngai đặt ở vị trí trung tâm, rồi chỉ hướng cửa sổ — ánh sáng tự nhiên rất ít.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "Mình đang ở gian lớn nhất của <b>Bạch Cung</b> — hơn bảy trăm mét vuông.",
+    "Bạch Cung khởi công năm <b>1645</b>, dưới thời vị <b>Đạt Lai Lạt Ma thứ 5</b>. Người Tạng gọi ông là <b>\"Đại Ngũ Thế\"</b> — bởi vì ông là người đã gom Tây Tạng đang rời rạc về một mối, và dời trung tâm quyền lực về đúng quả đồi này.",
+    "Gian phòng này là nơi làm <b>lễ tọa sàng</b>. Nghĩa là: khi một đứa trẻ được xác nhận là hoá thân của vị Đạt Lai Lạt Ma vừa qua đời, thì nghi lễ đưa đứa trẻ đó chính thức lên ngôi diễn ra ngay tại đây.",
+    "Cả nhà hình dung: một đứa bé bốn, năm tuổi, được bế đặt lên ngai giữa gian phòng này, giữa tiếng kèn đồng dài mấy mét, giữa hàng trăm vị sư quỳ hai bên. Từ giây phút đó, nó không còn là con của cha mẹ nó nữa. Nó là <b>vua</b>, và đồng thời là <b>tu sĩ</b>.",
+    "Ngoài lễ tọa sàng, đây còn là nơi tiếp sứ thần, xử việc hành chính, ban lệnh. Nên phòng này thuộc về phần <b>đời</b> của Potala. Lát nữa qua bên Hồng Cung mình sẽ sang phần <b>đạo</b> — và cả nhà sẽ thấy hai bên khác nhau hoàn toàn về không khí."
+  ],
+  bridge:"Mình đi tiếp lên phòng ở. Cả nhà bám sát nhau — đoạn này hành lang hẹp và rất đông.",
+  ops:[
+    "Gian này hay tắc — <b>nói tối đa 4 phút</b>, đừng cố kể hết.",
+    "Nếu đông quá: nói phần này ở sân Đức Dương Hạ trước, vào đây chỉ chỉ trỏ.",
+    "Đếm người ở cửa ra, không đếm giữa phòng."
+  ]
+},
+{
+  id:7, label:"Nhật Quang Điện", chipSide:"right", x:588, y:302,
+  vn:"Nhật Quang Điện — phòng ở của Đạt Lai Lạt Ma", alt:"日光殿", dur:"10 phút", key:false,
+  tags:["Bạch Cung","Đời sống riêng","Có thể cắt"],
+  bullets:[
+    "Nằm ở tầng trên cùng của Bạch Cung, hứng nắng gần như cả ngày — nên gọi là <b>Nhật Quang Điện</b>.",
+    "Chia làm <b>Đông Nhật Quang Điện</b> và <b>Tây Nhật Quang Điện</b>.",
+    "Đây là <b>nơi ở thật</b> của các đời Đạt Lai Lạt Ma: phòng ngủ, phòng đọc kinh, phòng tiếp riêng.",
+    "Vị <b>thứ 13</b> và vị <b>thứ 14</b> đều từng sống trong khu này.",
+    "Phòng nhỏ, thấp, giản dị hơn khách tưởng rất nhiều — đây chính là điểm gây bất ngờ.",
+    "Ở độ cao 3.700m, nắng là nguồn sưởi chính — kiến trúc đặt phòng ở trên cùng là quyết định sinh tồn, không phải phô trương."
+  ],
+  stand:{ where:"Đứng ở cửa phòng, để khách nhìn vào trong — phòng nhỏ, cả đoàn không vào cùng lúc được.", look:"Chỉ cửa sổ và hướng nắng. Rồi chỉ kích thước cái giường.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "Đây là <b>Nhật Quang Điện</b> — cái tên nghĩa đen là điện ánh mặt trời, vì nó nằm trên cùng và hứng nắng gần như cả ngày.",
+    "Và đây là chỗ khiến nhiều khách bất ngờ nhất trong cả buổi. Cả nhà nhìn vào đi ạ. Đây là <b>phòng ngủ thật</b> của một người vừa là vua vừa là vị thầy tinh thần của cả một dân tộc. Nó nhỏ. Trần thấp. Giường hẹp.",
+    "Cả nhà vừa đi qua những gian điện dát vàng, và bây giờ đứng trước một căn phòng như thế này. Sự chênh lệch đó không phải ngẫu nhiên. Ở đây, <b>vàng dành cho thần, không dành cho người</b>. Người thì ngủ trên một cái giường hẹp.",
+    "Còn vì sao phòng ở lại đặt trên cùng? Không phải để oai. Ở độ cao 3.700 mét, mùa đông xuống âm mười mấy độ, và cả toà nhà này <b>không có hệ thống sưởi</b>. Nguồn nhiệt đáng tin cậy duy nhất là <b>nắng</b>. Cho nên đưa phòng ở lên chỗ hứng nắng nhiều nhất là một quyết định sinh tồn.",
+    "Vị <b>Đạt Lai Lạt Ma thứ 13</b> và vị <b>thứ 14</b> đều từng sống ở khu này. Vị thứ 14 vào đây khi còn là một đứa trẻ. Ông đã lớn lên trong những căn phòng cỡ này — học kinh, học triết học, học tranh biện, mỗi ngày, suốt tuổi thơ."
+  ],
+  bridge:"Mình rời phần Bạch Cung ở đây. Bước qua bên kia là <b>Hồng Cung</b> — và không khí sẽ đổi hẳn. Cả nhà chú ý nhé, ánh sáng sẽ tối hơn, mùi bơ cháy sẽ đậm hơn.",
+  ops:[
+    "Phòng nhỏ, <b>chia đoàn thành 2 tốp</b> nếu đoàn trên 15 người.",
+    "Đây là điểm <b>cắt thứ tư</b> nếu thiếu giờ — gộp vào phần Bạch Cung.",
+    "Không để khách nán lại chụp lén — phòng nhỏ, camera rõ."
+  ]
+},
+{
+  id:8, label:"Tây Đại Điện (Hồng Cung)", chipSide:"left", x:506, y:338,
+  vn:"Tây Đại Điện — Hồng Cung", alt:"西有寂圆满大殿 · Tsomchen Nub", dur:"15 phút", key:false,
+  tags:["Hồng Cung","Tranh tường","Trọng tâm"],
+  bullets:[
+    "Gian <b>lớn nhất toàn bộ Potala</b> — khoảng <b>725 m²</b>, 48 cột lớn.",
+    "Hồng Cung (Potrang Marpo) xây <b>1690–1694</b>, sau khi Đạt Lai thứ 5 đã qua đời.",
+    "Người chỉ huy xây là nhiếp chính <b>Sangye Gyatso</b> — ông <b>giấu tin Đạt Lai thứ 5 viên tịch suốt khoảng 15 năm</b> để công trình không bị bỏ dở và chính quyền không rối loạn.",
+    "Trên tường có bức tranh nổi tiếng: <b>Đạt Lai thứ 5 diện kiến Hoàng đế Thuận Trị ở Bắc Kinh, năm 1652–1653</b>.",
+    "Toàn bộ Hồng Cung có gần <b>700 bức tranh tường</b> và hàng nghìn cuộn thangka.",
+    "Đây là gian đặt trọng tâm thị giác — trần cao, cột lớn, ánh đèn bơ, mùi bơ cháy rất đặc trưng."
+  ],
+  stand:{ where:"Dừng dưới hàng cột đầu tiên, để khách ngước nhìn trần trước khi nói.", look:"Bức tranh tường cảnh diện kiến năm 1652 — hỏi hướng dẫn địa phương chỉ chính xác vị trí, tranh rất dày đặc.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "Đây là gian <b>lớn nhất trong toàn bộ Potala</b> — hơn bảy trăm mét vuông, bốn mươi tám cây cột. Mình đã bước sang <b>Hồng Cung</b>, phần đỏ mà cả nhà nhìn thấy từ dưới quảng trường.",
+    "Và ở đây có một câu chuyện mà em nghĩ là câu chuyện hay nhất của cả toà nhà này.",
+    "Hồng Cung được xây từ năm <b>1690 đến 1694</b>. Nhưng Đạt Lai Lạt Ma thứ 5 — người khởi xướng toàn bộ công trình — thì đã <b>qua đời từ trước đó</b>.",
+    "Người nhiếp chính của ông tên là <b>Sangye Gyatso</b>. Ông ấy hiểu một điều: nếu tin Đạt Lai Lạt Ma viên tịch lan ra lúc này, thì công trình sẽ dừng, các thế lực chung quanh sẽ nhân cơ hội tràn vào, và Tây Tạng vừa mới thống nhất sẽ vỡ lại. Cho nên ông ấy làm một việc gần như không tưởng: <b>ông giấu cái chết đó suốt khoảng mười lăm năm</b>.",
+    "Mười lăm năm. Ông nói Đạt Lai Lạt Ma đang <b>nhập thất tu thiền dài hạn</b>, không tiếp ai. Ông vẫn cho dọn cơm lên phòng. Vẫn ban chiếu chỉ nhân danh ngài. Có ghi chép nói ông còn tìm một vị sư có dáng giống để thỉnh thoảng xuất hiện từ xa. Và trong suốt mười lăm năm đó, những người thợ vẫn ngày ngày khiêng đá lên đồi, vẫn dựng lên cái gian phòng mà cả nhà đang đứng.",
+    "Cả nhà thử nghĩ xem — cần loại thần kinh nào để giữ một bí mật như thế, mỗi ngày, suốt mười lăm năm.",
+    "Trên tường quanh đây có gần <b>bảy trăm bức tranh tường</b>. Trong đó có một bức rất nổi tiếng: cảnh Đạt Lai Lạt Ma thứ 5 <b>đi Bắc Kinh diện kiến Hoàng đế Thuận Trị</b>, khoảng năm 1652–1653. Đó là một sự kiện có thật, được vẽ lại bởi những người sống gần thời điểm đó.",
+    "Em nói thêm một con số để cả nhà hiểu vì sao hôm nay mình không thể xem hết: gần bảy trăm bức tranh tường, mỗi bức nhìn một phút thôi, thì cần <b>bảy ngày không ngủ</b>. Cho nên em xin đề nghị thế này — cả nhà đừng cố xem nhiều. Hãy chọn <b>một bức</b>, bức nào gọi mình cũng được, và đứng trước nó khoảng ba phút. Nhìn vào mắt của nhân vật trong tranh. Người Tạng xem tranh không phải để <i>hiểu</i>, mà để <b>gặp</b>."
+  ],
+  bridge:"Bây giờ mình sang khu bảo tháp. Em báo trước: cả nhà chuẩn bị tinh thần, vì cái sắp thấy khá là choáng.",
+  ops:[
+    "<b>Trọng tâm nội dung của cả buổi.</b> Cắt ở đâu cũng được, đừng cắt ở đây.",
+    "Không cố chỉ đúng bức tranh 1652 nếu đông — nói ý là đủ, chỉ sai còn tệ hơn.",
+    "Mùi bơ cháy nồng, khách nhạy mùi có thể choáng — để ý người mặt tái."
+  ]
+},
+{
+  id:9, label:"Quần thể linh tháp", chipSide:"left", x:470, y:294,
+  vn:"Quần thể linh tháp các đời Đạt Lai Lạt Ma", alt:"灵塔殿", dur:"15 phút", key:false,
+  tags:["Hồng Cung","Choáng thị giác","Không cắt"],
+  bullets:[
+    "Hồng Cung chứa bảo tháp của <b>8 đời Đạt Lai Lạt Ma</b> (thứ 5, 7, 8, 9, 10, 11, 12, 13).",
+    "<b>Vắng mặt vị thứ 6</b> — Tsangyang Gyatso, vị Đạt Lai Lạt Ma làm thơ tình, bị phế truất và mất tích trên đường bị áp giải, không có bảo tháp ở đây.",
+    "Tháp của <b>Đạt Lai thứ 5</b>: cao <b>14,85 mét</b>, bọc khoảng <b>3.700 kg vàng</b>, khảm hàng chục nghìn viên đá quý.",
+    "Tháp của <b>Đạt Lai thứ 13</b>: cao khoảng <b>14 mét</b>, dựng những năm 1930.",
+    "Bảo tháp trong truyền thống Tạng không phải mộ theo nghĩa thông thường — mỗi tầng tháp tượng trưng một tầng của con đường giác ngộ.",
+    "Đây là điểm gây <b>ấn tượng thị giác mạnh nhất</b> toàn bộ chuyến tham quan."
+  ],
+  stand:{ where:"Đứng ở góc phòng nhìn chéo lên đỉnh tháp — cho khách cảm nhận chiều cao trước, số liệu sau.", look:"Bảo tháp Đạt Lai thứ 5 trước, sau đó chỉ dãy tháp còn lại.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "<span class='stage'>Để khách nhìn 10 giây trước khi nói một chữ nào.</span>",
+    "Cái tháp trước mặt cả nhà cao <b>gần mười lăm mét</b> — tức là cao bằng một toà nhà năm tầng, và nó nằm gọn <i>trong</i> một căn phòng. Bên ngoài bọc khoảng <b>ba tấn bảy vàng</b>, khảm hàng chục nghìn viên đá quý.",
+    "Đây là bảo tháp của <b>Đạt Lai Lạt Ma thứ 5</b> — chính vị mà nãy em kể, người có cái chết bị giấu suốt mười lăm năm.",
+    "Trong Hồng Cung này có tất cả <b>tám bảo tháp</b>, của tám đời Đạt Lai Lạt Ma. Nhưng cả nhà để ý một chuyện: <b>không có tháp của vị thứ 6</b>.",
+    "Vị thứ 6 tên là <b>Tsangyang Gyatso</b>. Ông là một trường hợp lạ lùng bậc nhất trong lịch sử Tây Tạng: ông không muốn làm Đạt Lai Lạt Ma. Ông trốn ra khỏi cung ban đêm, xuống phố Barkhor, uống rượu, và <b>làm thơ tình</b>. Những bài thơ đó tới hôm nay người Tạng vẫn thuộc, vẫn hát. Sau đó ông bị phế truất, bị áp giải đi Bắc Kinh, và <b>mất tích trên đường</b>. Không ai biết chắc chuyện gì đã xảy ra. Cho nên trong căn phòng vàng son này, có một chỗ trống mang tên ông.",
+    "Còn về những cái tháp — em xin nói rõ một điều để cả nhà khỏi hiểu nhầm. Đây <b>không phải là mộ</b> theo nghĩa mình quen. Trong truyền thống Tạng, mỗi tầng của bảo tháp tượng trưng cho một tầng trên con đường giác ngộ. Cái tháp không nói \"người này đã chết\". Nó nói: <b>\"con đường này đã đi tới đâu\"</b>.",
+    "Và vàng ở đây cũng không phải để khoe của. Trong cách nghĩ của người Tạng, thứ quý giá nhất mà cộng đồng có được thì phải dâng cho thứ đáng kính nhất. Nhiều gia đình nghèo đã góp vào đây từng chỉ vàng một."
+  ],
+  bridge:"Bây giờ mình đi tới phần mà em chờ suốt từ sáng. Hai gian phòng nhỏ, không có tí vàng nào đáng kể — nhưng lại là hai gian quan trọng nhất trong cả toà nhà này.",
+  ops:[
+    "<b>Không bao giờ cắt điểm này.</b> Đây là ký ức thị giác khách mang về.",
+    "Để im lặng 10 giây trước khi nói — hiệu quả hơn mọi con số.",
+    "Phòng tháp thường tắc nghẽn: đứng lệch sang góc, không chắn lối.",
+    "Chốt lại thời gian: rời khu này khi đã dùng ~45/60 phút."
+  ]
+},
+{
+  id:10, label:"Pháp Vương Động", chipSide:"right", x:530, y:264,
+  vn:"Pháp Vương Động — phòng thiền thế kỷ 7", alt:"法王洞 · Chogyel Drupuk", dur:"10 phút", key:true,
+  tags:["Thế kỷ 7","Trọng tâm ý nghĩa","Không cắt"],
+  bullets:[
+    "Một trong <b>hai gian duy nhất còn lại</b> từ toà cung điện thế kỷ 7 — mọi thứ khác trong Potala đều là phần xây thêm về sau.",
+    "Tương truyền là <b>hang thiền của vua Tùng Tán Cán Bố (Songtsen Gampo)</b>, thế kỷ 7.",
+    "Bên trong có tượng nhà vua, tượng <b>Công chúa Văn Thành</b> (từ nhà Đường) và <b>Công chúa Bhrikuti</b> (từ Nepal), cùng các đại thần.",
+    "Có cả <b>bếp lò bằng đá</b> tương truyền dùng từ thời đó — chi tiết đời thường gây xúc động nhất.",
+    "Gian phòng nhỏ, tối, thấp, ám khói đèn bơ hơn 1.300 năm.",
+    "Tùng Tán Cán Bố là người thống nhất Tây Tạng, đưa Phật giáo vào, và cho tạo ra <b>chữ viết Tạng</b>."
+  ],
+  stand:{ where:"Phòng rất nhỏ — chia đoàn thành nhóm 4–5 người, HDV đứng ngoài cửa nói trước rồi cho vào.", look:"Nói phần dẫn <b>ngoài cửa</b>. Vào trong chỉ chỉ: vua ở giữa, hai công chúa hai bên, bếp lò ở góc.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "<span class='stage'>Nói toàn bộ phần này NGOÀI CỬA trước khi cho khách vào — trong phòng quá chật và tối.</span>",
+    "Cả nhà dừng lại đây một chút. Em muốn nói trước khi mình bước vào.",
+    "Từ sáng tới giờ mình đã đi qua rất nhiều vàng. Bây giờ mình sắp bước vào một gian phòng <b>nhỏ, tối, thấp</b>, gần như không có gì lấp lánh. Và đây là một trong <b>hai gian phòng quan trọng nhất</b> của toàn bộ Potala.",
+    "Lý do rất đơn giản: Potala có hơn một nghìn gian. Nhưng <b>chỉ có hai gian còn sót lại từ toà cung điện gốc thế kỷ 7</b>. Tất cả những thứ lộng lẫy mà cả nhà vừa thấy — Bạch Cung, Hồng Cung, các bảo tháp — đều mới có từ thế kỷ 17. Tức là chúng <b>trẻ hơn gian phòng này một nghìn năm</b>.",
+    "Gian này gọi là <b>Pháp Vương Động</b> — hang của vị vua tôn giáo. Tương truyền đây là nơi <b>Tùng Tán Cán Bố</b> ngồi thiền, vào thế kỷ 7. Ông là người đã thống nhất các bộ tộc Tây Tạng thành một vương quốc, đưa Phật giáo vào, và cho người sang Ấn Độ học để <b>tạo ra chữ viết Tạng</b> — thứ chữ mà tới hôm nay người Tạng vẫn dùng.",
+    "Trong đó cả nhà sẽ thấy tượng của ông, và hai bên là tượng <b>hai người vợ</b>: <b>Công chúa Văn Thành</b> từ nhà Đường bên Trung Hoa, và <b>Công chúa Bhrikuti</b> từ Nepal. Hai cuộc hôn nhân chính trị — và cũng chính là hai con đường mà Phật giáo theo về Tây Tạng, một từ phía Đông, một từ phía Nam.",
+    "Nhưng thứ em muốn cả nhà tìm nhất không phải mấy pho tượng. Trong góc phòng có một cái <b>bếp lò bằng đá</b>. Người ta bảo nó có từ thời đó.",
+    "Một cái bếp. Trong một cung điện của thần thánh. Nghĩa là ở đây từng có người <b>nấu ăn</b>. Có người thổi lửa, có khói, có mùi thức ăn, có ai đó chờ nồi nước sôi. Sau tất cả những tấn vàng mình vừa đi qua, thứ khiến em đứng lâu nhất trong toà nhà này lại là một cái bếp."
+  ],
+  bridge:"Mình vào theo từng tốp nhỏ, mỗi tốp khoảng năm người. Vào rồi thì đừng nói gì, chỉ nhìn. Ra tới ngoài mình sang gian còn lại — gian thiêng nhất.",
+  ops:[
+    "<b>Tuyệt đối không cắt.</b> Đây là trục ý nghĩa của cả buổi tham quan.",
+    "<b>Nói hết phần dẫn ở ngoài cửa</b>, trong phòng không nói.",
+    "Chia tốp 4–5 người, HDV đứng ngoài điều tiết, trợ lý đón đầu bên kia.",
+    "Phòng này hay phải xếp hàng — tính thêm 3–5 phút chờ vào ngân sách."
+  ]
+},
+{
+  id:11, label:"Thánh Quán Âm Điện", chipSide:"right", x:558, y:240,
+  vn:"Thánh Quán Âm Điện — gian thiêng nhất", alt:"圣观音殿 · Phakpa Lhakhang", dur:"10 phút", key:true,
+  tags:["Thế kỷ 7","Thánh vật số 1","Không cắt"],
+  bullets:[
+    "Gian thứ hai còn lại từ thế kỷ 7 — và là <b>gian được người Tạng coi là thiêng nhất</b> trong toàn bộ Potala.",
+    "Thờ tượng <b>Arya Lokeshvara</b> — Thánh Quán Thế Âm, tạc bằng gỗ đàn hương, kích thước nhỏ.",
+    "Truyền thuyết nói tượng <b>tự sinh</b>, không do tay người tạc, được thỉnh về từ vùng Nepal thời Tùng Tán Cán Bố.",
+    "Tên <b>\"Potala\"</b> lấy từ núi <b>Potalaka</b> ở Nam Ấn — trú xứ của Bồ Tát Quán Thế Âm. Cả toà cung điện được đặt tên theo pho tượng trong gian này.",
+    "Người Tạng tin các đời Đạt Lai Lạt Ma là <b>hoá thân của Quán Thế Âm</b> — nên gian này là <b>tâm điểm</b> của toàn bộ hệ thống.",
+    "Người hành hương xếp hàng rất dài, có người đi bộ hàng tháng chỉ để đứng trước gian này vài giây."
+  ],
+  stand:{ where:"Nói ngoài hành lang trước khi vào. Trong gian có người hành hương thật đang lễ — giữ khoảng cách, không chen.", look:"Pho tượng nhỏ trong khám thờ. Nhắc khách đừng tìm cái gì to lớn — thiêng không đi cùng với to.", photo:"<b>Cấm chụp tuyệt đối. Đây là gian nghiêm nhất.</b>" },
+  script:[
+    "<span class='stage'>Nói ngoài hành lang. Hạ giọng. Đây là chỗ nghiêm nhất trong cả buổi.</span>",
+    "Đây là gian thứ hai còn lại từ thế kỷ 7. Và với người Tây Tạng, đây là <b>gian thiêng nhất</b> trong toàn bộ Potala.",
+    "Bên trong thờ một pho tượng gọi là <b>Arya Lokeshvara</b> — Thánh Quán Thế Âm. Tượng tạc bằng gỗ đàn hương, và cả nhà chuẩn bị tinh thần: nó <b>nhỏ</b>. Nhỏ hơn rất nhiều so với những gì mình vừa đi qua. Ở đây, cái thiêng không đi cùng với cái to.",
+    "Truyền thuyết kể rằng pho tượng này <b>không do tay người tạc</b> — nó tự hiện ra, và được thỉnh về từ vùng Nepal, từ thời Tùng Tán Cán Bố, hơn một nghìn ba trăm năm trước.",
+    "Bây giờ em nói một điều mà em để dành từ đầu buổi. Cả nhà có bao giờ thắc mắc <b>vì sao toà nhà này tên là \"Potala\"</b> không ạ?",
+    "<b>Potalaka</b> là tên một ngọn núi ở miền Nam Ấn Độ. Trong kinh sách, đó là <b>nơi ở của Bồ Tát Quán Thế Âm</b> — vị Bồ Tát của lòng từ bi. Và người Tây Tạng tin rằng các đời Đạt Lai Lạt Ma chính là <b>hoá thân của ngài</b>.",
+    "Cho nên toàn bộ cái toà nhà khổng lồ này — một nghìn gian phòng, hai trăm nghìn pho tượng, ba tấn vàng trên một cái tháp — tất cả, về bản chất, chỉ là <b>ngôi nhà dựng quanh pho tượng nhỏ trong gian phòng trước mặt cả nhà</b>.",
+    "Cái vỏ lớn tới mức đó. Cái lõi nhỏ tới mức đó.",
+    "Lát nữa vào trong, cả nhà sẽ thấy người Tạng xếp hàng. Có người đã đi bộ hàng tháng trời để tới đây. Có người đi bằng cách cứ ba bước lại nằm dài xuống đất. Và họ chỉ được đứng trước pho tượng đó vài giây thôi. Mình xin đứng nép sang một bên, nhường họ, và đừng ai chụp ảnh. Vài giây đó là của họ."
+  ],
+  bridge:"Ra khỏi đây là mình gần xong phần trong cung. Còn hai gian nữa mình đi ngang qua, rồi bắt đầu đường xuống.",
+  ops:[
+    "<b>Tuyệt đối không cắt. Đây là đỉnh cảm xúc của buổi tham quan.</b>",
+    "Nói toàn bộ ngoài hành lang — trong gian tuyệt đối im lặng.",
+    "<b>Nhường đường cho người hành hương</b>, không chen hàng, không đứng chắn khám thờ.",
+    "Canh camera và nhân viên — đây là gian bị giám sát chặt nhất.",
+    "Xếp hàng có thể mất 5–10 phút, tính vào ngân sách."
+  ]
+},
+{
+  id:12, label:"Thù Thắng Tam Giới & Thời Luân", chipSide:"left", x:458, y:254,
+  vn:"Điện Thù Thắng Tam Giới & Điện Thời Luân", alt:"殊胜三界殿 / 时轮殿", dur:"10 phút", key:false,
+  tags:["Hồng Cung","Lịch sử nhà Thanh","Có thể cắt"],
+  bullets:[
+    "<b>Điện Thù Thắng Tam Giới</b> đặt bài vị khắc chữ chúc thọ Hoàng đế nhà Thanh — dấu tích quan hệ Tây Tạng – triều đình Bắc Kinh thời <b>Càn Long</b>.",
+    "Trong điện còn có tượng và thangka liên quan tới thời Càn Long.",
+    "<b>Điện Thời Luân</b> (Kalachakra) có <b>mạn-đà-la bằng đồng</b> lớn, hàng trăm pho tượng nhỏ gắn quanh.",
+    "Kalachakra — \"Bánh xe Thời gian\" — là hệ thống giáo lý tantra gắn thiên văn, lịch pháp, y học và thiền định làm một.",
+    "Người Tạng dùng chính hệ thống này để làm <b>lịch Tạng</b> — tính ngày lễ, ngày gieo hạt, ngày làm nghi thức.",
+    "Điểm <b>cắt thứ ba</b> nếu thiếu giờ — có thể gộp một câu khi đi ngang."
+  ],
+  stand:{ where:"Đi ngang, nói gọn khi cả đoàn đang di chuyển chậm — không dừng hẳn nếu đang trễ giờ.", look:"Mạn-đà-la đồng ở điện Thời Luân — hình khối ba chiều, khách hay tưởng là mô hình cung điện.", photo:"<b>Cấm chụp.</b>" },
+  script:[
+    "Hai gian này mình đi nhanh, nhưng em xin nói mỗi gian một ý.",
+    "Gian thứ nhất gọi là <b>Điện Thù Thắng Tam Giới</b>. Trong đó có đặt một tấm bài vị khắc chữ chúc thọ <b>Hoàng đế nhà Thanh</b>, từ thời <b>Càn Long</b>. Chi tiết nhỏ thôi, nhưng nó nói lên một điều lớn: Tây Tạng chưa bao giờ là một ốc đảo tách biệt. Nơi này luôn nằm trong một mạng lưới quan hệ với Bắc Kinh, với Mông Cổ, với Nepal, với Ấn Độ — bằng hôn nhân, bằng sứ thần, bằng lễ vật, bằng cả súng ống.",
+    "Gian thứ hai là <b>Điện Thời Luân</b>. Ở giữa có một khối bằng đồng khá lớn — nhìn qua nhiều người tưởng là mô hình một cung điện. Không phải. Đó là một <b>mạn-đà-la</b>, tức là một <b>bản đồ vũ trụ</b> dựng thành hình khối.",
+    "<b>Kalachakra</b>, dịch là \"Bánh xe Thời gian\", là một hệ thống giáo lý gộp chung ba thứ mà mình thường tách rời: <b>thiên văn, y học, và thiền định</b>. Ý tưởng của nó là chu kỳ bên ngoài — mặt trời, mặt trăng, mùa màng — và chu kỳ bên trong — hơi thở, mạch đập, tâm trí — <b>là cùng một cỗ máy</b>.",
+    "Và nó không chỉ nằm trên lý thuyết. Người Tạng dùng chính hệ thống này để tính <b>lịch Tạng</b>: ngày nào làm lễ, ngày nào gieo hạt, ngày nào dời nhà. Cái khối đồng trước mặt cả nhà, với họ, vừa là vật thờ vừa là một <b>công cụ tính toán</b>."
+  ],
+  bridge:"Xong phần trong cung rồi ạ. Bây giờ mình bắt đầu đi xuống theo lối phía Bắc — và cả nhà chú ý, đường xuống trơn hơn đường lên.",
+  ops:[
+    "<b>Cắt thứ ba</b> khi thiếu giờ — nói gộp một câu khi đi ngang.",
+    "Đây là lúc kiểm giờ lần cuối: nên rời nội cung ở mốc 55–58 phút.",
+    "Trước khi xuống dốc: nhắc lại cảnh báo trơn trượt."
+  ]
+},
+{
+  id:13, label:"Long Vương Đàm (Lukhang)", chipSide:"left", x:856, y:186,
+  vn:"Long Vương Đàm — hồ sau cung", alt:"龙王潭 · Lukhang", dur:"20 phút", key:false,
+  tags:["Ngoài trời","Ảnh phản chiếu","Kết buổi"],
+  bullets:[
+    "Công viên phía sau (phía Bắc) Potala, trung tâm là một <b>hồ nhân tạo</b>.",
+    "Hồ hình thành từ chính <b>hố lấy đất đá để xây cung</b> — đào lên xây, chỗ trũng thành hồ.",
+    "Giữa hồ có đền <b>Lukhang</b> — đền Long Vương, gắn với vị <b>Đạt Lai Lạt Ma thứ 6</b>, vị làm thơ tình.",
+    "Bên trong đền Lukhang có loạt <b>bích hoạ tantra</b> nổi tiếng, mô tả các tư thế yoga và trạng thái thiền định.",
+    "Đây là <b>điểm chụp ảnh phản chiếu Potala trên mặt nước</b> — góc ảnh kinh điển, và ít khách đoàn biết.",
+    "Không khí hoàn toàn khác: cây liễu, người già đánh cờ, người dân đi dạo — Potala nhìn từ mặt sau, không còn vẻ uy nghiêm."
+  ],
+  stand:{ where:"Bờ Nam hồ, quay lưng ra hồ để khách nhìn được cả cung lẫn mặt nước phản chiếu.", look:"Mặt nước lặng — hình cung lộn ngược. Đây là hình ảnh khách sẽ dùng để kết chuyến đi.", photo:"<b>Điểm ảnh đẹp nhất buổi.</b> Buổi sáng gió nhẹ, mặt hồ phẳng, phản chiếu rõ nhất." },
+  script:[
+    "Mình ra khỏi cung rồi. Cả nhà thở đi ạ — thở thật sâu vào.",
+    "Đây là <b>Long Vương Đàm</b>, công viên sau lưng Potala. Và em xin kể cái hồ này ở đâu ra.",
+    "Để xây cung điện, người ta cần một khối lượng đất đá khổng lồ. Người ta đào ngay dưới chân đồi. Đào mãi, đào mãi — và cái hố khổng lồ đó về sau đầy nước, thành ra cái hồ mà cả nhà đang nhìn.",
+    "Nghĩa là: <b>cái hồ này chính là phần âm bản của toà cung điện kia</b>. Cung điện dựng lên bao nhiêu, thì đất bị moi đi bấy nhiêu, để lại đúng cái khoảng trống này. Cái đẹp mọc lên ở đây thì có một khoảng lõm sinh ra ở kia. Người ta không định làm ra cái hồ. Nó là hệ quả.",
+    "Giữa hồ có một ngôi đền nhỏ tên là <b>Lukhang</b> — đền Long Vương. Nó gắn với vị <b>Đạt Lai Lạt Ma thứ 6</b> — đúng vị mà nãy em kể trong phòng bảo tháp, vị làm thơ tình và không có bảo tháp trong Hồng Cung. Ông hay ra ngôi đền này. Bên trong có loạt bích hoạ rất nổi tiếng, vẽ các tư thế yoga và các trạng thái thiền định — thuộc loại tranh hiếm nhất còn lại của truyền thống này.",
+    "<span class='stage'>Cho khách chụp ảnh 5–7 phút, rồi gọi lại để kết.</span>",
+    "Trước khi mình lên xe, cả nhà nhìn mặt nước một lần nữa. Sáng nay cả nhà nhìn Potala từ phía trước — nó cao, nó uy nghi, nó làm mình thấy mình nhỏ. Bây giờ mình nhìn nó từ phía sau, in ngược trên mặt hồ, giữa mấy cây liễu và mấy ông cụ đánh cờ.",
+    "Cùng một toà nhà. Hai khuôn mặt. Sáng nay là <b>quyền lực</b>. Bây giờ là <b>đời sống</b>.",
+    "Và em nghĩ đó mới là điều Potala thật sự dạy mình. Mình đã đi qua ba tấn vàng trên một cái bảo tháp, và cũng đã đứng trước một cái bếp lò bằng đá. Cái làm cả nhà nhớ lâu nhất, em đoán, sẽ không phải là ba tấn vàng."
+  ],
+  bridge:"Cả nhà chụp ảnh thoải mái ở đây. Mười lăm phút nữa mình tập hợp ở cổng, đi tiếp Drak Yerpa — nơi hoàn toàn ngược lại với chỗ mình vừa đi: không vàng, không tượng lớn, chỉ có đá và gió.",
+  ops:[
+    "<b>Điểm tập hợp số 2 / kết thúc</b> — chốt rõ giờ và vị trí.",
+    "Đây là chỗ để khách hồi sức sau leo — đừng giục ngay.",
+    "Nếu khách hỏi câu nhạy cảm trong cung, giờ là lúc trả lời (ngắn, ở mức lịch sử).",
+    "Câu kết ngày ở đây có thể nối thẳng sang phần Drak Yerpa buổi chiều."
+  ]
+},
+{
+  id:14, label:"Dược Vương Sơn (bonus)", chipSide:"right", x:112, y:436,
+  vn:"Dược Vương Sơn — đài ngắm cảnh", alt:"药王山观景台 · Chakpori", dur:"15 phút", key:false,
+  tags:["Tuỳ chọn","Ảnh tờ 50 tệ","Có thể cắt"],
+  bullets:[
+    "Ngọn đồi đối diện Potala về phía Tây, tên Tạng là <b>Chakpori</b>.",
+    "Trên đỉnh từng có <b>trường y học Tạng</b>, lập khoảng năm 1696 — một trong những trường y quan trọng nhất Tây Tạng.",
+    "Sườn đồi có hàng nghìn <b>hình Phật khắc và vẽ trực tiếp lên vách đá</b>, nhiều bức rất cổ.",
+    "Đây là <b>góc chụp in trên tờ 50 nhân dân tệ</b> — khách rất thích chi tiết này, cầm tờ tiền lên so là ra ảnh.",
+    "Đẹp nhất lúc <b>sáng sớm</b> (nắng đánh mặt tiền) hoặc <b>hoàng hôn 17:30–18:30</b>.",
+    "Không nằm trong chương trình cứng — HDV đề xuất nếu còn thời gian, hoặc gợi ý khách tự đi buổi tự do."
+  ],
+  stand:{ where:"Đài ngắm cảnh ven đường lên đồi. Chỗ này rất đông vào giờ hoàng hôn — tới sớm 15 phút.", look:"Toàn cảnh Potala ngang tầm mắt, không phải ngước lên như ở quảng trường.", photo:"Bảo khách rút tờ 50 tệ ra, giơ lên so với khung cảnh. Đây là kiểu ảnh khách khoe nhiều nhất." },
+  script:[
+    "Chỗ mình đang đứng gọi là <b>Dược Vương Sơn</b>, tiếng Tạng là <b>Chakpori</b>. Trước khi nói gì thêm, em mời cả nhà rút ra tờ <b>50 tệ</b>.",
+    "<span class='stage'>Đợi khách rút tiền, giơ lên so.</span>",
+    "Đúng rồi ạ. Hình in trên tờ tiền đó được vẽ từ chính góc nhìn này.",
+    "Vì sao ngọn đồi này lại tên là \"Dược Vương\"? Vì trên đỉnh đồi này, từ khoảng <b>năm 1696</b>, từng có một <b>trường y học Tạng</b> — một trong những trường y quan trọng nhất của cả vùng. Các vị sư ở đây vừa tụng kinh vừa học mạch, học dược liệu, học phẫu thuật.",
+    "Đó là một điều em muốn cả nhà mang về: trong truyền thống này, <b>tôn giáo và y học không tách rời nhau</b>. Người chữa bệnh cũng là người tu. Bài thuốc và bài kinh nằm cùng một chỗ.",
+    "Và cả nhà để ý sườn đồi bên kia — hàng nghìn hình Phật được <b>khắc thẳng vào vách đá</b>, tô màu, qua nhiều thế kỷ, do vô số người vô danh làm. Không ai ký tên. Không ai đòi công. Người này khắc xong thì người sau tô lại màu.",
+    "Sáng nay mình đứng dưới quảng trường ngước lên nhìn Potala. Bây giờ mình đứng ngang tầm với nó. Cùng một toà nhà, nhưng khi mình không phải ngước cổ lên nữa, nó trông khác hẳn — nó không còn là một biểu tượng. Nó trở lại là <b>một ngôi nhà rất lớn trên một quả đồi</b>."
+  ],
+  bridge:"Đây là góc ảnh cuối cùng của Lhasa mà em muốn tặng cả nhà. Chụp thoải mái — và nếu được, hãy chụp một kiểu không có mình trong ảnh.",
+  ops:[
+    "<b>Không nằm trong chương trình cứng</b> — cắt thứ hai khi thiếu giờ.",
+    "Nếu cắt: gợi ý khách tự đi trong buổi tự do, chỉ đường cụ thể.",
+    "Hoàng hôn 17:30–18:30 là khung đẹp nhất nhưng cực đông — tới sớm.",
+    "Chuẩn bị sẵn một tờ 50 tệ trong túi HDV để làm mẫu."
+  ]
+}
+];
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+const SVGNS="http://www.w3.org/2000/svg";
+let cur=0, showLabels=true, playing=null;
+
+const pinsG=document.getElementById('pins');
+const chipsG=document.getElementById('chips');
+const railEl=document.getElementById('rail');
+const panelEl=document.getElementById('panel');
+
+/* --- route polyline --- */
+document.getElementById('routeline').setAttribute('d',
+  'M'+PLACES.filter(p=>p.id<=13).map(p=>p.x+' '+p.y).join(' L'));
+
+/* --- pins + chips --- */
+PLACES.forEach(p=>{
+  const g=document.createElementNS(SVGNS,'g');
+  g.setAttribute('class','pin'+(p.key?' key':''));
+  g.setAttribute('data-id',p.id);
+  g.setAttribute('tabindex','0');
+  const c=document.createElementNS(SVGNS,'circle');
+  c.setAttribute('class','dot'); c.setAttribute('cx',p.x); c.setAttribute('cy',p.y); c.setAttribute('r',13);
+  const t=document.createElementNS(SVGNS,'text');
+  t.setAttribute('class','num'); t.setAttribute('x',p.x); t.setAttribute('y',p.y+4);
+  t.textContent = p.id===14 ? '★' : p.id;
+  g.appendChild(c); g.appendChild(t); pinsG.appendChild(g);
+  g.addEventListener('click',()=>select(p.id));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter')select(p.id)});
+
+  const w=p.label.length*6.9+18, right=p.chipSide==='right';
+  const cx = right ? p.x+19 : p.x-19-w;
+  const ch=document.createElementNS(SVGNS,'g');
+  ch.setAttribute('class','chip'); ch.setAttribute('data-id',p.id);
+  const r=document.createElementNS(SVGNS,'rect');
+  r.setAttribute('x',cx); r.setAttribute('y',p.y-11); r.setAttribute('width',w);
+  r.setAttribute('height',22); r.setAttribute('rx',11);
+  const tx=document.createElementNS(SVGNS,'text');
+  tx.setAttribute('x',cx+9); tx.setAttribute('y',p.y+1);
+  tx.textContent=p.label;
+  ch.appendChild(r); ch.appendChild(tx); chipsG.appendChild(ch);
+  ch.addEventListener('click',()=>select(p.id));
+  ch.style.cursor='pointer';
+});
+
+/* --- rail list --- */
+PLACES.forEach(p=>{
+  const li=document.createElement('li');
+  li.dataset.id=p.id;
+  li.innerHTML=`<span class="idx">${p.id===14?'★':p.id}</span>
+    <span><span class="nm">${p.vn}</span><br><span class="sub">${p.alt}</span></span>
+    <span class="dur">${p.dur}</span>`;
+  li.addEventListener('click',()=>select(p.id));
+  railEl.appendChild(li);
+});
+
+/* --- panel --- */
+function renderPanel(p){
+  const i=PLACES.indexOf(p);
+  panelEl.innerHTML=`
+    <div class="pn-head">
+      <div class="pn-kicker">Chặng ${p.id===14?'bổ sung':p.id+' / 13'} · ${p.dur}</div>
+      <h2>${p.vn}</h2>
+      <div class="pn-alt">${p.alt}</div>
+      <div class="pn-meta">${p.tags.map(t=>{
+        const cls = /Không cắt|Trọng tâm|Thế kỷ 7|Thánh vật/.test(t)?'t-gold'
+                  : /cắt|Tuỳ chọn/.test(t)?'t-red' : 't-blue';
+        return `<span class="tag ${cls}">${t}</span>`}).join('')}</div>
+    </div>
+    <div class="pn-body">
+      <div class="sec"><h4>Ý chính</h4><ul>${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul></div>
+
+      <div class="sec"><h4>Đứng ở đâu · nhìn cái gì</h4>
+        <div class="stand">
+          <div><b>Vị trí đứng:</b> ${p.stand.where}</div>
+          <div><b>Hướng khách nhìn:</b> ${p.stand.look}</div>
+          <div><b>Chụp ảnh:</b> ${p.stand.photo}</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <h4>Script thuyết minh</h4>
+        <div class="script" id="scriptbox" hidden>
+          ${p.script.map(s=>s.startsWith('<span')?s:`<p>${s}</p>`).join('')}
+          <div class="bridge"><em>Câu chuyển cảnh</em>${p.bridge}</div>
+        </div>
+        <button class="toggle-script" id="togScript">▼ Xem script đầy đủ</button>
+      </div>
+
+      <div class="sec hdv-only"><h4>Vận hành — dành cho HDV</h4>
+        <div class="ops"><ul>${p.ops.map(o=>`<li>${o}</li>`).join('')}</ul></div>
+      </div>
+    </div>
+    <div class="pn-nav">
+      <button id="prevBtn" ${i===0?'disabled':''}>← Chặng trước</button>
+      <button id="nextBtn" ${i===PLACES.length-1?'disabled':''}>Chặng sau →</button>
+    </div>`;
+
+  const box=panelEl.querySelector('#scriptbox'), tog=panelEl.querySelector('#togScript');
+  tog.addEventListener('click',()=>{
+    box.hidden=!box.hidden;
+    tog.textContent = box.hidden ? '▼ Xem script đầy đủ' : '▲ Thu gọn script';
+  });
+  const pv=panelEl.querySelector('#prevBtn'), nx=panelEl.querySelector('#nextBtn');
+  pv.addEventListener('click',()=>select(PLACES[i-1].id));
+  nx.addEventListener('click',()=>select(PLACES[i+1].id));
+}
+
+function select(id){
+  cur=id;
+  const p=PLACES.find(q=>q.id===id);
+  pinsG.querySelectorAll('.pin').forEach(g=>g.classList.toggle('sel',+g.dataset.id===id));
+  chipsG.querySelectorAll('.chip').forEach(g=>g.classList.toggle('selchip',+g.dataset.id===id));
+  railEl.querySelectorAll('li').forEach(li=>li.classList.toggle('sel',+li.dataset.id===id));
+  renderPanel(p);
+  if(window.innerWidth<=980) panelEl.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* --- labels toggle --- */
+document.getElementById('btn-labels').addEventListener('click',e=>{
+  showLabels=!showLabels;
+  e.target.classList.toggle('on',showLabels);
+  chipsG.querySelectorAll('.chip').forEach(c=>c.classList.toggle('hide',!showLabels));
+});
+
+/* --- play route --- */
+document.getElementById('btn-play').addEventListener('click',e=>{
+  if(playing){clearInterval(playing);playing=null;e.target.textContent='▶ Chạy lộ trình';e.target.classList.remove('on');return;}
+  let i=0; select(PLACES[0].id);
+  e.target.textContent='■ Dừng'; e.target.classList.add('on');
+  playing=setInterval(()=>{
+    i++;
+    if(i>=PLACES.length){clearInterval(playing);playing=null;e.target.textContent='▶ Chạy lộ trình';e.target.classList.remove('on');return;}
+    select(PLACES[i].id);
+  },2600);
+});
+
+/* --- search --- */
+document.getElementById('search').addEventListener('input',e=>{
+  const q=e.target.value.trim().toLowerCase();
+  PLACES.forEach(p=>{
+    const hit = !q || (p.vn+' '+p.alt+' '+p.label+' '+p.tags.join(' ')).toLowerCase().includes(q);
+    railEl.querySelector(`li[data-id="${p.id}"]`).classList.toggle('hidden',!hit);
+    pinsG.querySelector(`.pin[data-id="${p.id}"]`).classList.toggle('dim',!hit);
+    chipsG.querySelector(`.chip[data-id="${p.id}"]`).classList.toggle('hide',!hit||!showLabels);
+  });
+});
+
+/* --- mode toggle --- */
+const mHdv=document.getElementById('m-hdv'), mKh=document.getElementById('m-khach');
+function setMode(m){
+  document.body.classList.toggle('mode-hdv',m==='hdv');
+  mHdv.classList.toggle('on',m==='hdv'); mKh.classList.toggle('on',m!=='hdv');
+  try{localStorage.setItem('potala-mode',m)}catch(err){}
+}
+mHdv.addEventListener('click',()=>setMode('hdv'));
+mKh.addEventListener('click',()=>setMode('khach'));
+try{ setMode(localStorage.getItem('potala-mode')||'hdv'); }catch(err){ setMode('hdv'); }
+
+/* --- tabs --- */
+document.querySelectorAll('.tabs button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.getElementById('page-'+b.dataset.page).classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* --- timeline build --- */
+(function(){
+  const start=9*60+30; let t=start;
+  const mins=p=>parseInt(p.dur,10)||10;
+  const fmt=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+  const ul=document.getElementById('tlA');
+  PLACES.forEach(p=>{
+    const a=t, b=t+mins(p); t=b;
+    const li=document.createElement('li');
+    li.innerHTML=`<span class="clock">${fmt(a)}–${fmt(b)}</span>
+      <span class="bar" style="height:auto"></span>
+      <span class="txt"><b>${p.id===14?'★ ':''}${p.vn}</b><span>${p.alt} · ${p.dur}${p.key?' · <b style="color:var(--gold)">KHÔNG CẮT</b>':''}</span></span>`;
+    li.addEventListener('click',()=>{
+      document.querySelector('.tabs button[data-page="map"]').click();
+      setTimeout(()=>select(p.id),120);
+    });
+    li.style.cursor='pointer';
+    ul.appendChild(li);
+  });
+})();
+
+/* --- keyboard --- */
+document.addEventListener('keydown',e=>{
+  if(document.activeElement.tagName==='INPUT') return;
+  const i=PLACES.findIndex(p=>p.id===cur);
+  if(e.key==='ArrowRight'&&i<PLACES.length-1) select(PLACES[i+1].id);
+  if(e.key==='ArrowLeft'&&i>0) select(PLACES[i-1].id);
+});
+
+select(0);
+</script>
+</body>
+</html>

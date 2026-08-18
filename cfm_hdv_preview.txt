@@ -1,0 +1,59 @@
+Total paragraphs: 241
+Total tables: 32
+
+  0 | Title | CFM – SỔ TAY HDV TÂY TẠNG 9N8Đ
+  1 | Normal | Tour: Lhasa · Shigatse · Everest Base Camp | Khởi hành: 26/04/2026
+Đối tác: Yunnan DiLang Internatio
+  3 | Heading 1 | PHẦN 1: THÔNG TIN CƠ BẢN TỪ ĐỐI TÁC
+  4 | Normal | Phần này là những gì đối tác Trung Quốc cam kết. HDV cần nắm rõ để đối chiếu khi có tranh chấp dịch 
+  5 | Heading 2 | Bảng 1.1. Dịch vụ đã bao gồm
+  6 | Heading 2 | Bảng 1.2. Lưu ý bất khả kháng & rủi ro
+  7 | Heading 2 | Bảng 1.3. Đặc thù khách & tour
+  9 | Heading 1 | PHẦN 2: 10 QUY TẮC VÀNG CHO HDV
+ 10 | Normal | Không phải lý thuyết suông. Đây là những điều sẽ cứu bạn khỏi rắc rối ngoài thực địa.
+ 11 | Normal | 1. Đừng dồn kiến thức ngày 1 — Ngày 1 là ngày cơ thể khách đang học thở lại. Nhiệm vụ duy nhất: giúp
+ 12 | Normal | 2. Quản lý độ cao trước lịch trình — Nếu khách xanh mặt ở Karola, cắt ngay thởi gian tham quan. Khôn
+ 13 | Normal | 3. Storytelling theo 3 lớp — Lớp 1: số liệu (cao bao nhiêu, nặng bao nhiêu). Lớp 2: câu chuyện (ai x
+ 14 | Normal | 4. 90 giây rồi pause — Mỗi đoạn thuyết minh dài không quá 90 giây. Sau đó im lặng hoặc hỏi. Không ai
+ 15 | Normal | 5. Không xin lỗi vì điều kiện địa phương — WC hôi? Đừng nói "xin lỗi". Hãy nói: "Đây là điều kiện th
+ 16 | Normal | 6. Thông báo WC trước 10 phút — Không bao giờ để xe dừng rồi mới nói. Khách cần thởi gian lấy giấy v
+ 17 | Normal | 7. Mang giấy dự phòng + túi zip — Trong ba lô cá nhân, luôn có ít nhất 2 cuộn giấy và 10 túi zip nhỏ
+ 18 | Normal | 8. Đứng ở cửa xe đón khách — Đặc biệt ở đèo cao và EBC. Xe trông giống nhau, khách thiếu oxy dễ đi l
+ 19 | Normal | 9. Không cho rượu bia ngày 1–3 — Và không tắm nước nóng dài trong 2 giờ đầu đến Lhasa. Vi phạm = ngu
+ 20 | Normal | 10. Ngày cuối là lễ kết thúc — Đừng để khách cảm thấy "chờ về". Trao quà, nhìn mắt từng ngưởi, nói l
+ 22 | Heading 1 | PHẦN 3: BẢNG TỔNG QUAN 9 NGÀY
+ 23 | Normal | Một bảng duy nhất để HDV nắm flow cảm xúc toàn chuyến.
+ 25 | Heading 1 | NGÀY 1: VÙNG ĐẤT CỦA CÁC VỊ THẦN
+ 26 | Normal | Chủ đề: Hạ cánh trên nóc nhà | Độ cao: 3.650m | Cảm xúc: Xa lạ, hồi hộp, tôn nghiêm
+ 27 | Heading 2 | 1. Bối cảnh & Nhiệm vụ
+ 28 | Normal | Đoàn bay từ 4h50 sáng, transit Thành Đô, đáp Lhasa lúc 18h30. Oxy chỉ bằng 65% so với mực nước biển.
+ 29 | Normal | Nhiệm vụ duy nhất hôm nay: đừng dồn kiến thức. Hãy coi ngày 1 như overture của vở opera — gieo motif
+ 30 | Heading 2 | 2. Lộ trình & Độ cao
+ 31 | Heading 2 | 3. Script thuyết minh
+ 32 | Normal | 3.1. TRÊN MÁY BAY / SÂN BAY THÀNH ĐÔ — Nhập môn sinh học cao nguyên
+ 33 | Normal | "Quý khách vừa ăn xong bữa trưa ở độ cao gần bằng đỉnh Fansipan. Nhưng trong vòng một tiếng nữa, chú
+ 34 | Normal | → Pause 3 giây. Nhìn từng ngưởi trong mắt. Đừng vội.
+ 35 | Normal | "Lhasa có nghĩa là Nơi của các vị thần. Nhưng trước đó, tên thành phố này là Rasa — có nghĩa là Dê. 
+ 36 | Normal | 3.2. TẠI SÂN BAY GONGGAR — Nghi thức Khata
+ 37 | Normal | "Quý khách thấy không khí không? Nó không chỉ lạnh — nó mỏng. Cảm giác như phổi mình là một cái túi 
+ 38 | Normal | → Hành động: Đi từng ngưởi, trao Khata, nói "Tashi Delek", đặt lên cổ hoặc để khách tự đeo. Động tác
+ 39 | Normal | 3.3. TRÊN XE VỀ LHASA — Mandala sống
+ 40 | Normal | "Chúng ta đang đi trên con đường mà Tống Tạng Cán Bố — vị vua đầu tiên thống nhất Tây Tạng — đã đi t
+ 41 | Normal | → Im lặng. Để mọi ngưởi nhìn ra ngoài. Đừng phá vỡ khoảnh khắc.
+ 42 | Normal | 3.4. BỮA TỐI ĐẦU TIÊN — Văn hóa ẩm thực nhập môn
+ 43 | Normal | "Bữa tối đầu tiên ở Tây Tạng, tôi không muốn quý khách chỉ ăn — tôi muốn quý khách hiểu.\n\nThứ nhất
+ 44 | Normal | 3.5. STORYTELLING MOMENT ĐỈNH CAO — Potala về đêm
+ 45 | Normal | "Quý khách nhìn lên đồi phía trước. Cái tòa nhà sáng đèn đỏ vàng kia là Cung điện Potala. Nó cao 117
+ 46 | Normal | "Tối nay, nếu quý khách tỉnh giấc lúc 3 giờ sáng vì đau đầu hoặc khó thở — đừng sợ. Đó là cơ thể quý
+ 47 | Heading 2 | 4. Checklist & Lưu ý
+ 49 | Heading 1 | NGÀY 2: TRƯỚC KHI CÓ PHẬT GIÁO
+ 50 | Normal | Chủ đề: Cội nguồn văn minh | Độ cao: 3.500–3.700m | Cảm xúc: Tò mò, khai sáng
+ 51 | Heading 2 | 1. Bối cảnh & Nhiệm vụ
+ 52 | Normal | Sau một đêm nghỉ, đoàn đã quen oxy hơn. Đây là ngày đầu tiên đi tour thực sự — xe chạy đến Tsetang.
+ 53 | Normal | Nhiệm vụ: kể chuyện trước — trước Lhasa, trước Phật giáo, trước cả chữ viết. Giúp khách hiểu Tây Tạn
+ 54 | Heading 2 | 2. Lộ trình & Độ cao
+ 55 | Heading 2 | 3. Script thuyết minh
+ 56 | Normal | 3.1. TRÊN XE ĐI TSETANG — Thung lũng Yarlung, cái nôi
+ 57 | Normal | "Quý khách nhìn ra ngoài cửa sổ. Chúng ta đang rời khỏi Lhasa, đi về phía đông nam. Hai bên đường là
+ 58 | Normal | → Pause. Chỉ cho khách thấy ruộng bậc thang nếu có.
+ 59 | Normal | "Ngưởi Tây Tạng tin rằng tổ tiên của họ là kết quả của một cuộc hôn nhân kỳ lạ: một con khỉ đực — hó

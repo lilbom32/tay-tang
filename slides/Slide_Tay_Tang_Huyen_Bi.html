@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="vi">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Tây Tạng Huyền Bí - 9 Ngày 8 Đêm</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        <style>
+			/* TIBETAN THEME CSS */
+			:root {
+				--bg-dark: #0f1015;
+				--bg-red: #6a1b22;
+				--text-main: #f8fafc;
+				--gold: #dfb360;
+				--gold-light: #fce7b4;
+				--accent: #2e6074;
+			}
+
+			body {
+				background: linear-gradient(135deg, var(--bg-dark) 0%, #151821 100%);
+				background-image: radial-gradient(circle at 50% 50%, rgba(106, 27, 34, 0.15) 0%, rgba(15, 16, 21, 1) 100%);
+			}
+
+			.reveal {
+				font-family: 'Outfit', sans-serif;
+				color: var(--text-main);
+			}
+
+			/* Typography */
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				font-family: 'Cinzel', serif;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: var(--gold-light);
+				text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+			}
+
+			.reveal h3 {
+				color: var(--gold);
+				font-weight: 700;
+				font-size: 1.6em;
+				margin-bottom: 40px;
+				position: relative;
+				display: inline-block;
+				padding-bottom: 10px;
+			}
+
+			.reveal h3::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, var(--gold), transparent);
+			}
+
+			.reveal section {
+				font-size: 0.85em;
+				line-height: 1.6;
+				text-align: left;
+			}
+
+			/* Cover Slide specific */
+			.slide-cover h3 {
+				font-size: 2.8em;
+				margin-bottom: 10px;
+				letter-spacing: 4px;
+			}
+			.slide-cover h3::after { display: none; }
+			.slide-cover p {
+				text-align: center;
+				font-size: 1.2em;
+			}
+			.slide-cover em {
+				display: block;
+				margin-top: 30px;
+				font-size: 1.1em;
+				color: var(--gold-light);
+				font-style: italic;
+				font-family: 'Cinzel', serif;
+				text-transform: none;
+				letter-spacing: 1px;
+			}
+
+			/* Glassmorphism Elements */
+			.reveal blockquote {
+				border-left: 4px solid var(--gold);
+				background: rgba(255, 255, 255, 0.04);
+				backdrop-filter: blur(8px);
+				padding: 20px 30px;
+				margin: 20px 0;
+				border-radius: 0 12px 12px 0;
+				font-style: italic;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+				color: #e2e8f0;
+			}
+
+			.reveal pre {
+				background: rgba(0, 0, 0, 0.4);
+				border: 1px solid rgba(255, 255, 255, 0.05);
+				border-radius: 10px;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+				width: 100%;
+				padding: 20px;
+			}
+
+			.reveal code {
+				font-family: 'Outfit', monospace;
+				color: #94a3b8;
+				font-size: 0.9em;
+				line-height: 1.8;
+			}
+
+			.reveal strong {
+				color: var(--gold-light);
+				font-weight: 600;
+				text-shadow: 0 0 10px rgba(223, 179, 96, 0.2);
+			}
+
+			.reveal em {
+				color: #cbd5e1;
+			}
+
+			/* Customizing Tables */
+			.reveal table {
+				width: 100%;
+				border-collapse: collapse;
+				background: rgba(255, 255, 255, 0.03);
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+				font-size: 0.8em;
+				margin-top: 20px;
+			}
+
+			.reveal th {
+				background: rgba(223, 179, 96, 0.12);
+				color: var(--gold);
+				font-family: 'Cinzel', serif;
+				font-weight: 700;
+				letter-spacing: 1px;
+				padding: 16px !important;
+				border-bottom: 1px solid rgba(223, 179, 96, 0.2) !important;
+				text-align: center !important;
+			}
+
+			.reveal td {
+				padding: 14px 16px !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+			}
+
+			.reveal tr:last-child td { border-bottom: none !important; }
+			.reveal tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+			/* Lists */
+			.reveal ul {
+				list-style-type: none;
+				padding-left: 0;
+			}
+
+			.reveal ul li {
+				position: relative;
+				padding-left: 35px;
+				margin-bottom: 14px;
+			}
+
+			.reveal ul li::before {
+				content: '✦';
+				position: absolute;
+				left: 0;
+				color: var(--gold);
+				font-size: 0.9em;
+				top: 4px;
+			}
+
+			/* Controls and Progress */
+			.reveal .progress { color: var(--gold) !important; }
+			.reveal .controls { color: var(--gold) !important; }
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-markdown data-separator="^---$" data-separator-vertical="^--$">
+                    <textarea data-template>
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1583407673551-8390b1cc461f" data-background-opacity="0.25" class="slide-cover" -->
+### SLIDE 1 – COVER
+**TÂY TẠNG HUYỀN BÍ**
+*Lhasa – Shigatse – Everest Base Camp*
+**9 Ngày · 8 Đêm · 3.650m – 5.200m**
+
+*"Bạn không chỉ đến một thành phố – bạn bước vào một mandala đang sống."*
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1582226258076-2e8ec9d6fbb5" data-background-opacity="0.1" -->
+### SLIDE 2 – CÂU HỎI MỞ ĐẦU (Ice-breaker)
+**Trước khi bắt đầu – hãy tự hỏi:**
+
+- Điều gì làm cho một nơi trở thành **thiêng**?
+- Tây Tạng có phải là **Shangri-La** trong trí tưởng tượng của bạn?
+- Sau 9 ngày – câu trả lời của bạn sẽ **thay đổi**
+
+*Học giả Donald Lopez (Đại học Michigan) viết năm 1998: "Khi phương Tây nhìn vào Tây Tạng, họ chỉ thấy hình ảnh méo mó của chính mình."*
+
+> **Mục tiêu của tour này:** Thấy Tây Tạng **thật** – không phải Tây Tạng trong phim Hollywood.
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1548074902-6019b884d5f5" data-background-opacity="0.1" -->
+### SLIDE 3 – BẢN ĐỒ HÀNH TRÌNH
+**9 ngày – 3 vùng đất – 1 arc cảm xúc**
+
+```text
+TP.HCM → Thành Đô → LHASA (N1–N2–N6–N7–N8–N9)
+                          ↓
+                    SHIGATSE (N3–N4)
+                          ↓
+               THỊ TRẤN EVEREST (N4 tối – N5)
+                          ↓
+                  EBC 5.200m (N5 sáng)
+```
+
+**Độ cao tăng dần:**
+- Lhasa: 3.650m
+- Đèo Kampa La: 4.990m
+- Karola: 5.020m
+- Everest Base Camp: **5.200m**
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1520638023438-2329b3a3c9be" data-background-opacity="0.1" -->
+### SLIDE 4 – EMOTIONAL ARC TỔNG QUAN
+**Hành trình cảm xúc 9 ngày**
+
+| Ngày | Địa điểm | Cảm xúc chủ đạo |
+|------|----------|-----------------|
+| N1 | Lhasa (đến) | Xa lạ → Tò mò |
+| N2 | Yumbulagang – Samye | Cội nguồn thức tỉnh |
+| N3 | Yamdrok – Karola | Choáng ngợp thiên nhiên |
+| N4 | Tashilhunpo – EBC Town | Hùng vĩ dâng trào |
+| **N5** | **Everest Base Camp** | **CLIMAX – Đỉnh điểm** |
+| N6 | Yarlung về Lhasa | Lắng đọng |
+| N7 | Jokhang – Barkhor | Kết nối tâm linh |
+| N8 | Potala – Drak Yerpa – Thangka | Chiều sâu tổng hợp |
+| N9 | Ra về | Mang theo hành trình |
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1601004169733-14930d42bfbe" data-background-opacity="0.15" -->
+### SLIDE 5 – NGÀY 1: "ARRIVAL AT THE PLACE OF THE GODS"
+**Lhasa – 3.650m – "Thành phố Ánh Dương"**
+
+**Hook mở đầu cho khách:**
+*"Phổi bạn đang phản ứng như người mới yêu – thở gấp, không kiểm soát. Bạn vừa đáp xuống một thế giới mà chính người bản địa tin có một nữ quỷ nằm ngửa bên dưới chân họ."*
+
+**3 điều cần biết về Lhasa ngay ngày đầu:**
+1. **Tên gốc là "Rasa" (Dê)** – chỉ đổi thành "Lhasa" sau khi tượng Jowo Shakyamuni được an vị (~710 CE)
+2. **Độ cao 3.650m** – cơ thể cần 24–48h thích nghi; đây không phải yếu đuối, đây là sinh lý học
+3. **Hơn 300 ngày nắng/năm** – "Ánh Dương" không phải tên thơ, đó là dữ liệu khí hậu
+
+**Buổi tối N1:** Ngắm Potala từ xa lúc hoàng hôn – *không vào trong*. Chỉ nhìn. Để khách tự cảm.
+
+---
+
+### SLIDE 6 – NỀN TẢNG VĂN HÓA: SINMO & BẢN ĐỒ NỮ QUỶ
+**Hiểu Lhasa từ bên dưới lòng đất**
+
+**Câu chuyện nền tảng – "Supine Demoness" (Srin Mo):**
+
+Khoảng năm 640 CE, công chúa **Wencheng** (nhà Đường) dùng địa lý phong thủy phát hiện:
+- Địa hình Tây Tạng = **thân một nữ ma quỷ nằm ngửa**
+- Trái tim bà = **hồ Wothang** (nơi Lhasa ngày nay)
+- Các khớp xương = các huyệt đạo cần "ghim" lại
+
+**Giải pháp của vua Songtsen Gampo:**
+- Tháo cạn hồ Wothang & Xây **Jokhang** ngay trên tim demoness
+- Xây **12 đền vệ tinh** tại vai, hông, khuỷu tay, đầu gối
+
+**Ý nghĩa sâu xa (theo Lopez):**
+> *"Chuyển hóa Tây Tạng sang Phật pháp không phải là đem giáo lý mới – mà là biến đổi phong cảnh bằng cách kiểm soát thần linh bản địa."*
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1582226258076-2e8ec9d6fbb5" data-background-opacity="0.1" -->
+### SLIDE 7 – NGÀY 2 (PHẦN 1): YUMBULAGANG
+**"Cung điện đầu tiên – Nơi vua từ trời rơi xuống"**
+
+**Sự kiện:** Trước Julius Caesar vượt sông Rubicon ~100 năm, tòa tháp này đã đứng ở thung lũng Yarlung.
+
+**Câu chuyện Nyatri Tsenpo:**
+- Thế kỷ II TCN, dân làng Yarlung thấy một người lạ xuất hiện trên đỉnh núi.
+- Họ hỏi: "Ông từ đâu đến?" – ông chỉ lên trời.
+- Họ cõng ông trên vai xuống núi, suy tôn làm vua. Tên **"Nyatri"** = "Vua trên vai".
+
+**Ruộng Zorthang:**
+- Phía tây bắc Yumbulagang – Được coi là **cánh đồng canh tác đầu tiên** của Tây Tạng.
+- Đến hôm nay, nông dân vẫn rải đất Zorthang lên ruộng mình mỗi mùa gieo.
+- **2.100 năm truyền thống không gián đoạn**
+
+*"Thung lũng Yarlung = cái nôi văn minh Tây Tạng – tương đương Nile với Ai Cập, Indus với Ấn Độ."*
+
+---
+
+### SLIDE 8 – NGÀY 2 (PHẦN 2): TU VIỆN SAMYE
+**"Không phải được xây – mà được thuần phục"**
+
+**Bối cảnh:** 763–779 CE. Vua **Trisong Detsen** muốn xây tu viện Phật giáo đầu tiên.
+**Vấn đề:** ban ngày xây được bao nhiêu, đêm thần bản địa phá hết bấy nhiêu.
+
+**Giải pháp:** Mời **Padmasambhava** đến. Ngài thực hiện **múa Vajrakilaya** – điều phục thần linh thành **hộ pháp**.
+
+**Kiến trúc Mandala Vũ Trụ:**
+- **Utse** (đại sảnh trung tâm) = **Núi Tu Di** (trung tâm vũ trụ Phật giáo)
+- 4 đền 4 hướng = 4 lục địa | 8 đền nhỏ = 8 tiểu lục địa
+- Tường tròn + **1.008 bảo tháp nhỏ** = vòng ngoài vũ trụ
+
+**Sự kiện lịch sử quan trọng – Debate Samye (~792–797 CE):**
+- **Kamalasila** (Ấn Độ): Giác ngộ cần **tiệm ngộ** (từng bước).
+- **Moheyan** (Trung Hoa): Giác ngộ là **đốn ngộ** (tức thì).
+- Trọng tài: Vua Trisong Detsen → **Ấn Độ thắng**.
+
+---
+
+### SLIDE 9 – NHÂN VẬT XUYÊN SUỐT: PADMASAMBHAVA
+**Guru Rinpoche – Người đặt nền Phật giáo Tây Tạng**
+
+Để HDV kể câu chuyện xuyên suốt hành trình (Samye → Drak Yerpa → EBC):
+
+**Tiểu sử cốt lõi:**
+- Sinh từ **hoa sen** trên hồ Dhanakosha (không có cha mẹ).
+- Thuần phục tất cả thần linh bản địa → biến thành **hộ pháp Phật giáo**.
+- Ẩn giấu **108 kho tàng giáo lý (terma)** trong đá, trong hồ, trên mây.
+- Terma được phát hiện dần qua các thế kỷ bởi **tertön (người tìm kho báu)**.
+
+**Xuất hiện ở đâu trong tour:**
+- Ngày 2 → Samye (điều phục thần linh).
+- Ngày 8 → Drak Yerpa (ẩn tu 7 tháng, dấu ấn thân trên đá).
+- Ngày 5 → Everest (thu phục Ngũ Trường Thọ Tỷ Muội, trong đó có Miyo Langsangma).
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1548074902-6019b884d5f5" data-background-opacity="0.15" -->
+### SLIDE 10 – NGÀY 3 (PHẦN 1): HỒ YAMDROK
+**"Nếu Yamdrok cạn đi, Tây Tạng sẽ kết thúc"**
+
+**Thông số:**
+- Độ cao: 4.441m. Một trong **3 đại thánh hồ** Tây Tạng.
+- Màu nước thay đổi theo giờ: xanh ngọc → xanh lam → tím bạc.
+
+**Tên trong tiếng Tạng:**
+- *Yam* = trên, *drok* = đồng cỏ, *yum* = ngọc, *tso* = hồ.
+- Dịch thơ: **"Đôi hoa tai ngọc lam của tiên nữ rơi xuống"**
+
+**Truyền thuyết cốt lõi:**
+- Hồ là hiện thân trần gian của **nữ thần long chủng (dragon princess)**.
+- Người Tạng tin: khi hồ cạn = Tây Tạng mất linh khí.
+
+*Câu HDV dùng tại Kampa La Pass (4.794m): "Bạn đang đứng ở ranh giới giữa hai hệ thống khí hậu. Phía sau – không khí Lhasa. Phía trước – hơi ẩm từ vịnh Bengal."*
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1528148811776-9d620563462f" data-background-opacity="0.2" -->
+### SLIDE 11 – NGÀY 3 (PHẦN 2): SÔNG BĂNG KAROLA
+**"Nước mắt đóng băng của nữ thần"**
+
+**Thực tế khoa học:**
+- Độ cao quan sát: 5.020–5.560m.
+- Một trong 3 đại băng hà lục địa Tây Tạng. Đang thu hẹp khoảng **20m/năm**.
+
+**Truyền thuyết bản địa:**
+- Karola = **"Giọt nước mắt đóng băng của Palden Lhamo"** (nữ thần bảo hộ dữ).
+- Các vết nứt trên băng = **vết thương trận chiến trừ ma**.
+
+**Knowledge Nugget cho khách:**
+> *"Sông băng này rút tới mức các nhà khoa học có thể đếm vòng cây ở mép moraine để đo lịch sử 200 năm. Nếu bạn có con – hãy chụp ảnh hôm nay. 70% của nó có thể không còn khi chúng lớn."*
+
+**Câu kết ngày 3:** *"Bạn vừa đi qua thánh hồ. Tối nay uống trà bơ yak. Ngày mai – gặp vị Phật chưa đến."*
+
+---
+
+### SLIDE 12 – VĂN HÓA CHÈN GIỮA: TRÀ BƠ YAK & TSAMPA
+**"Bí tích của tính Tây Tạng" – Kapstein**
+
+**Trà bơ yak (Po cha):**
+- Nguyên liệu: Gạch trà từ Vân Nam + **bơ "dri" (yak cái)** + muối.
+- Khuấy trong ống gỗ **dongmo** (60–200 lần).
+- 1 cốc = **250 calo** – thiết yếu ở độ cao, bù chất béo, chống môi trường khô.
+
+**Tsampa (bột lúa mạch rang):**
+- Lúa mạch trồng ở Tây Tạng **5.600 năm**.
+- Cách ăn: trộn với trà bơ, nặn thành nắm – không cần nấu, không cần lửa.
+
+**Tầm quan trọng chính trị:**
+- 2008–2012: Các cuộc biểu tình tự gọi là **#TsampaRevolution**.
+- Tsampa = **định danh văn hóa Tạng** – như phở với người Việt, nhưng có trọng lượng chính trị hơn.
+
+---
+
+### SLIDE 13 – NGÀY 4 (PHẦN 1): TU VIỆN TASHILHUNPO
+**"Heap of Glory – Tất cả phúc lành tụ về đây"**
+
+**Lịch sử:**
+- Thành lập **1447** bởi **Gedun Drub** – Đạt Lai Lạt Ma thứ Nhất.
+- Từ 1642: Trụ sở chính thức của **Panchen Lama** (hiện thân của Phật A Di Đà).
+
+**Điểm nhấn – Tượng Jampa (Maitreya):**
+- Cao **26,2m** – **tượng Phật đồng mạ vàng ngồi lớn nhất thế giới**.
+- Vật liệu: **279 kg vàng + ~150.000 kg đồng**. Nghệ nhân: 110 người, thi công 4 năm.
+
+**Tranh cãi chưa dứt – Panchen Lama thứ 11:**
+- 1995: Gedhun Choekyi Nyima (6 tuổi) – được Đạt Lai Lạt Ma công nhận → bị Trung Quốc bắt.
+- Trung Quốc công nhận Gyaincain Norbu qua "Golden Urn".
+- Đến nay: Vẫn chưa có hồi kết.
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1528148811776-9d620563462f" data-background-opacity="0.2" -->
+### SLIDE 14 – NGÀY 4 (PHẦN 2): HOÀNG HÔN EVEREST TỪ XA
+**"Lần đầu gặp – chưa nói tên thật"**
+
+**Khoảnh khắc thiết kế:**
+- Đến Thị trấn Everest (Tingri) trước hoàng hôn. Nhìn Chomolungma từ xa.
+
+**HDV nói:**
+*"Đây không phải Everest. Đây là **Chomolungma**. Năm 1865, một người Anh tên Andrew Waugh đặt tên ngọn núi theo Sir George Everest. Nhưng với hàng triệu người Tạng và Sherpa, nàng là một **vị thần**."*
+
+**Preview cho ngày mai:**
+- Tên đầy đủ: **Jomo Miyo Langsangma** ("Người phụ nữ tốt lành bất động").
+- Nàng cưỡi **hổ vàng**, tay cầm **bát tsampa và con chồn phun ngọc**.
+- Nàng quyết định ai được lên đỉnh.
+
+**Câu kết:** *"Đêm nay, hãy ngủ sớm. Ngày mai 5 giờ sáng – chúng ta đi gặp nàng."*
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1528148811776-9d620563462f" data-background-opacity="0.3" -->
+### SLIDE 15 – NGÀY 5: EVEREST BASE CAMP
+**"At the Feet of the Goddess – 5.200m"**
+
+**Ngũ Trường Thọ Tỷ Muội – 5 nữ thần bảo hộ Himalaya:**
+- Được **Padmasambhava** thu phục thế kỷ VIII.
+- Miyo Langsangma = đỉnh cao nhất = **Chomolungma**.
+
+**Tu viện Rongbuk (5.000m):**
+- Tu viện Nyingma **cao nhất thế giới** – xây 1902.
+- Sư trụ trì đầu tiên đặt tên **Tenzing Norgay** cho cậu bé Namgyal Wangdi.
+- 51 năm sau: Tenzing là người **đầu tiên đứng trên đỉnh thế giới** (1953).
+
+**Storytelling moment đỉnh cao:**
+Đứng ở EBC, nhìn sườn bắc Everest → **Im lặng 60 giây**.
+> *"Bạn có thể không leo lên đỉnh. Nhưng bạn đã đến gần nàng hơn 99,99% nhân loại. Đây là lúc để cảm ơn."*
+
+---
+
+### SLIDE 16 – NGÀY 6: CAO TỐC YARLUNG TSANGPO
+**"Trở về theo dòng mẹ"**
+
+**Yarlung Tsangpo – Con sông vĩ đại:**
+- Dòng sông cao nhất thế giới.
+- Chảy xuyên **Yarlung Tsangpo Grand Canyon** – hẻm núi sâu nhất Trái Đất (6.009m).
+- Trở thành **Brahmaputra** (Ấn Độ/Bangladesh).
+
+**Huyền thoại cội nguồn người Tạng:**
+- Tổ tiên = **một con khỉ** (hóa thân Bồ Tát Avalokiteshvara) và một **sinmo** (nữ quỷ).
+- Họ sinh ra 6 đứa con = 6 bộ tộc Tây Tạng đầu tiên.
+
+**Tangtong Gyalpo – Kỹ sư thế kỷ 14:**
+- Xây **cầu sắt treo đầu tiên** ở Yarlung. Hình tượng: ông lão mang xích sắt.
+
+**Tone ngày 6:** Nhẹ nhàng, lắng đọng – khách đang "tiêu hóa" Everest.
+
+---
+
+### SLIDE 17 – NGÀY 7 (PHẦN 1): ĐỀN JOKHANG
+**"Trái tim của Lhasa – trên tim của demoness"**
+
+**Bối cảnh lịch sử:**
+- Xây khoảng **640 CE** bởi vua **Songtsen Gampo**.
+- Được dựng **ngay trên tim của sinmo** – trên nền hồ Wothang đã tháo cạn.
+
+**Tượng Jowo Shakyamuni – Thiêng nhất Tây Tạng:**
+- Công chúa Wencheng mang vào Tây Tạng năm 641 như của hồi môn.
+- **Cameron Warner:** *"Người Tạng chưa bao giờ dùng từ 'tượng' – họ đối xử với Jowo như một con người rất thiêng liêng"*
+
+**Điểm quan sát thiết yếu:**
+- Cửa đền quay hướng **Tây** (về Nepal/Bhrikuti).
+- Ramoche Temple quay hướng **Đông** (về Trường An/Wencheng).
+- Hai ngôi đền = biểu tượng **hai liên minh chính trị**.
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1601004169733-14930d42bfbe" data-background-opacity="0.15" -->
+### SLIDE 18 – NGÀY 7 (PHẦN 2): BARKHOR & NORBULINGKA
+**"Đi theo chiều kim đồng hồ – 1.300 năm không gián đoạn"**
+
+**Ba vòng kora của Lhasa:**
+- **Nangkhor** (trong Jokhang), **Barkhor** (quanh đền), **Lingkhor** (quanh thành phố cổ).
+- Đi chiều kim đồng hồ: quy tắc **tiền-Phật giáo** từ thời Bön. Ý nghĩa: **"tích lũy công đức"**.
+
+**Makye Ame – Quán cà phê góc đông nam Barkhor:**
+- Nơi **Đạt Lai Lạt Ma thứ 6 – Tsangyang Gyatso** hẹn người yêu.
+- Thơ của ông vẫn được người Tạng hát ngày nay.
+
+**Norbulingka – "Công viên Châu Báu":**
+- Cung điện mùa hè từ thời **Đạt Lai Lạt Ma thứ 7**.
+- **Đêm 17/3/1959:** Đạt Lai Lạt Ma thứ 14 trốn thoát từ đây sang Ấn Độ.
+
+---
+
+<!-- .slide: data-background-image="https://images.unsplash.com/photo-1583407673551-8390b1cc461f" data-background-opacity="0.25" -->
+### SLIDE 19 – NGÀY 8 (PHẦN 1): CUNG ĐIỆN POTALA
+**"1.000 phòng – Nhưng 2 phòng thật sự quan trọng"**
+
+**Lịch sử xây dựng:**
+- **Đạt Lai Lạt Ma thứ 5** khởi công năm 1645.
+- **White Palace** (nơi làm việc) và **Red Palace** (trung tâm tâm linh).
+
+**2 phòng quan trọng nhất:**
+1. **Phakpa Lhakhang** – thờ tượng Phật linh thiêng nhất.
+2. **Chogyel Drupuk** – **hang thiền của Songtsen Gampo** (từ thế kỷ VII).
+
+**Con số ấn tượng:**
+- 13 tầng, 117m chiều cao tòa nhà. 698 tranh tường.
+- Tên "Potala" từ núi **Potalaka** (Nam Ấn) – trú xứ của **Bồ Tát Quan Thế Âm**.
+- Đạt Lai Lạt Ma = **hóa thân của Quan Thế Âm** → Potala = **"Cung trời trên mặt đất"**
+
+---
+
+### SLIDE 20 – NGÀY 8 (PHẦN 2): DRAK YERPA
+**"Thánh địa của thánh địa"**
+
+**Vị trí:** 16km đông bắc Lhasa, 4.400–4.880m, 108 hang trên vách đá vôi.
+
+> *"Lhasa là thánh địa của Tây Tạng. Nhưng Drak Yerpa là thánh địa của Lhasa."*
+
+**4 nhân vật vĩ đại gắn với Yerpa:**
+
+| Nhân vật | Hang | Câu chuyện |
+|----------|------|------------|
+| Songtsen Gampo | Chögyel Puk | Thiền định cùng 2 hoàng hậu Nepal & Đường |
+| Padmasambhava | Dawa Puk | Ẩn tu 7 tháng, để lại dấu ấn thân trên đá |
+| Atisha | Nhiều hang | Đại học giả Ấn Độ thuyết pháp rộng rãi (1042 CE) |
+| Lhalung Pelgyi Dorje | Ẩn danh | Ám sát vua bạo chúa Langdarma, trốn thiền 22 năm |
+
+---
+
+### SLIDE 21 – NGÀY 8 (PHẦN 3): WORKSHOP THANGKA
+**"Tay bạn vừa chạm vào 1.300 năm"**
+
+**Thangka là gì?**
+- *Thang* (phẳng) + *ka* (tranh) = **tranh cuộn Phật giáo Tây Tạng**.
+- 3 chức năng: **công cụ thiền | kinh sách thị giác | sự kết tinh tâm linh**.
+
+**Hệ thống tỷ lệ thần linh:**
+- Đơn vị đo: **sor** (bề rộng một ngón tay).
+- **Không được tự tiện thay đổi tỷ lệ** → đó là tỷ lệ của thần linh.
+
+**Lễ Consecration – Khi tranh trở thành thần:**
+1. Sư thầy vẽ **mắt** (activation).
+2. Viết **om ah hum** bằng chữ Lantsha phía sau.
+3. → Từ thời điểm đó: **vị thần thực sự cư ngụ trong hình**. Tranh là **thân** của vị thần.
+
+---
+
+### SLIDE 22 – PRAYER FLAGS & LUNGTA
+**"Ngựa gió – Khi Phật giáo kế thừa tín ngưỡng cổ xưa"**
+
+**Lungta = "Ngựa gió":**
+- Con ngựa thần cổ Tạng, mang **Tam Bảo** trên lưng. Bao quanh bởi **Tứ Linh**.
+
+**5 màu = Ngũ Đại:**
+- **Xanh dương** (Trời) - **Trắng** (Mây) - **Đỏ** (Lửa) - **Xanh lá** (Gió) - **Vàng** (Đất).
+
+**Nguồn gốc:**
+- Ban đầu: ***klung rta*** (ngựa sông) – tín ngưỡng Bön bản địa về linh hồn cá nhân.
+- Thêm kinh văn Phật giáo → mỗi lần gió thổi = một lời cầu nguyện bay đi.
+
+> **Câu kết ngày 9:** *"Treo ở ban công – không phải để đẹp. Mà để mỗi khi gió thổi, một lời chúc lành được gửi đến những người bạn chưa biết."*
+
+---
+
+### SLIDE 23 – NGÀY 9: "PRISONERS OF SHANGRI-LA – FREED"
+**Tổng kết hành trình**
+
+**Bạn đã thấy Tây Tạng nào?**
+
+| Shangri-La tưởng tượng | Tây Tạng thật bạn đã gặp |
+|----------------------|--------------------------|
+| Thiên đường hoà bình | Đất nước có lịch sử tranh biện, chiến tranh |
+| Các tu sĩ thoát tục | Panchen Lama làm chính trị giữa CM Văn hóa |
+| Thiên nhiên bất biến | Karola đang mất 20m/năm |
+| Huyền bí xa lạ | Tsampa – lương thực có sức mạnh cách mạng |
+
+**Điều bạn mang về:**
+- Câu hỏi: *"Điều gì làm cho một nơi trở thành thiêng?"*
+- Không phải câu trả lời – mà là khả năng **tiếp tục hỏi**.
+- Câu trả lời sẽ thay đổi mỗi năm → *đó là lý do tại sao mọi người quay lại*.
+
+---
+
+### SLIDE 24 – BẢNG TỔNG HỢP: CÁC NHÂN VẬT XUYÊN SUỐT
+**"Ai đã xuất hiện nhiều hơn một lần trong hành trình của bạn?"**
+
+| Nhân vật | Gặp ở đâu | Ý nghĩa |
+|----------|-----------|---------|
+| **Songtsen Gampo** | Jokhang, Potala, Yerpa | Vua thống nhất – đưa Phật giáo vào Tạng |
+| **Padmasambhava** | Samye, Yerpa, Everest | Thuần phục thần linh – đặt nền Nyingma |
+| **Đạt Lai Lạt Ma 5** | Potala, Jokhang | Nhà thống nhất – xây Potala |
+| **Miyo Langsangma** | Everest, prayer flags | Nữ thần núi cao – quyết định leo đỉnh |
+| **Tsangyang Gyatso** | Barkhor, Norbulingka | Thi sĩ-tu sĩ nổi loạn |
+| **Tenzing Norgay** | Rongbuk, EBC | Người leo lên đỉnh với sự cho phép của nữ thần |
+
+---
+
+### SLIDE 25 – BẢNG TỔNG HỢP: CÁC TRUYỀN THUYẾT CHÍNH
+**"Chọn 1–2 câu chuyện phù hợp với từng đoàn"**
+
+| Truyền thuyết | Điểm kể | Đoàn phù hợp |
+|---------------|---------|--------------|
+| Sinmo – Nữ quỷ nằm ngửa | Jokhang, Lhasa | Tất cả |
+| Nyatri Tsenpo – Vua từ trời | Yumbulagang | Gia đình, huyền thoại |
+| Debate Samye – Tiệm ngộ vs Đốn ngộ | Samye | Trí thức, Phật tử |
+| Jowo Shakyamuni – Không phải "tượng" | Jokhang | Tất cả |
+| Miyo Langsangma – Nữ thần Everest | EBC | Tất cả |
+| Tsampa Revolution | Bữa ăn, trên xe | Quan tâm văn hóa-chính trị |
+| Tsangyang Gyatso & Makye Ame | Barkhor | Lãng mạn, yêu thơ |
+
+---
+
+### SLIDE 26 – KỸ NĂNG THUYẾT MINH
+**Framework 4 bước cho HDV**
+
+```text
+① HOOK (20–30 giây)
+   → Câu hỏi / câu chuyện bất ngờ / con số gây sốc
+   → Mục tiêu: Khách nhìn lên, đặt điện thoại xuống
+
+② BỐI CẢNH (1–2 phút)
+   → Ai xây / khi nào / tại sao
+   → Dùng cụm "Theo truyền thống..." / "Theo học giả..."
+
+③ KNOWLEDGE NUGGET (30–60 giây)
+   → 1 chi tiết đặc biệt không có trong sách du lịch thông thường
+
+④ CÂU KẾT CẢM XÚC (15–20 giây)
+   → Mở cửa cho ngày/điểm đến tiếp theo
+```
+
+**Nguyên tắc vàng:**
+- Mỗi điểm đến **tối đa 3 thông tin** khách có thể nhớ.
+- **Kể chuyện trước, giải thích sau**.
+- Luôn có **ít nhất 1 khoảnh khắc im lặng** mỗi ngày.
+
+---
+
+### SLIDE 27 – PHÂN BIỆT SỰ THẬT & TRUYỀN THUYẾT
+**Hướng dẫn dùng ngôn ngữ chuẩn xác**
+
+**Dùng "Theo truyền thống Tạng..." khi:**
+- Nyatri Tsenpo từ trời rơi xuống
+- Miyo Langsangma cho phép Tenzing lên đỉnh
+
+**Dùng "Theo nghiên cứu của Lopez/Powers/Kapstein..." khi:**
+- Phân tích Debate Samye
+- Hệ thống tulku/tái sinh
+
+**Dùng số liệu khoa học khi:**
+- Karola rút 20m/năm / Lúa mạch trồng 5.600 năm
+
+**Điểm nhạy cảm cần thận trọng:**
+- Vấn đề Panchen Lama thứ 11.
+- Sự kiện 1959 và sau đó. Không so sánh tôn giáo.
+
+---
+
+### SLIDE 28 – TÀI NGUYÊN MỞ CHO HDV TỰ ĐÀO SÂU
+**"Nguồn đáng tin cậy nhất – tất cả đều miễn phí"**
+
+| Nguồn | Dùng để tìm gì |
+|-------|----------------|
+| **Treasury of Lives** | Tiểu sử nhân vật, lịch sử tu viện |
+| **Himalayan Art Resources** | Hình ảnh thangka, biểu tượng |
+| **Rubin Museum Essays** | Bài luận chuyên sâu về Jokhang, Jowo |
+| **Smarthistory** | Phân tích lịch sử nghệ thuật Tạng |
+| **Internet Archive** | PDF Powers, Shakya, Kapstein miễn phí |
+
+**3 cuốn sách nền tảng:**
+1. John Powers – *Introduction to Tibetan Buddhism*
+2. Donald Lopez – *Religions of Tibet in Practice*
+3. Matthew Kapstein – *The Tibetans*
+
+> *Ghi chú: Mỗi ngày HDV chọn 3–4 slides phù hợp với nhịp đoàn, không cần theo tuần tự cứng nhắc.*
+                    </textarea>
+                </section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+                center: true,
+                transition: 'slide',
+                backgroundTransition: 'fade',
+				plugins: [ RevealMarkdown ]
+			});
+		</script>
+	</body>
+</html>

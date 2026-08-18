@@ -1,0 +1,6 @@
+# Third-party books: excluded from the public repository.
+books/
+
+# Python bytecode cache
+__pycache__/
+*.py[cod]

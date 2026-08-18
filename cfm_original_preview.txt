@@ -1,0 +1,42 @@
+Total paragraphs: 392
+Total tables: 0
+
+  0 | Title | CFM – CẨM NANG VẬN HÀNH VÀ THUYẾT MINH
+  1 | Normal | Tour Tây Tạng 9N8Đ | Lhasa · Shigatse · Everest Base Camp
+Khởi hành: 26/04/2026 | Đối tác: Yunnan Di
+  3 | Heading 1 | PHẦN I: THÔNG TIN CƠ BẢN TOUR
+  4 | Normal | Đây là bản xác nhận dịch vụ (CFM) được tái cấu trúc thành cẩm nang HDV. Mọi thông tin từ đối tác Tru
+  5 | Heading 2 | 1. Thông tin đối tác & liên hệ khẩn
+  6 | Normal | • Công ty: Yunnan DiLang International Travel Agency Co., Ltd
+  7 | Normal | • Điện thoại đối tác: Li Qian 13708727744
+  8 | Normal | • Ghi chú quan trọng: KIỂM TRA THỜI GIAN CHUYẾN BAY TRƯỚC BẢNG KẾ HOẠCH TIẾP ĐÓN ĐOÀN
+  9 | Heading 2 | 2. Dịch vụ đã bao gồm (theo CFM gốc)
+ 10 | Normal | • Phòng: 8 phòng tiêu chuẩn + 1 phòng đơn (1 ngưởi ở riêng)
+ 11 | Normal | • Ăn uống: 60 RMB/ngưởi/bữa × 13 bữa + 80 RMB/ngưởi/bữa × 1 bữa (bữa đặc biệt)
+ 12 | Normal | • Phương tiện: Xe du lịch VIP hạng sang 26 chỗ, kiểu 2+1 (đoạn Tây Tạng)
+ 13 | Normal | • Vé tham quan: Bao gồm tất cả điểm trong chương trình (nếu vé tăng giá không thông báo trước, căn c
+ 14 | Normal | • Dịch vụ đi kèm theo xe/ngày: 2 chai nước khoáng, khăn khadah đón tàu, bình oxy thép theo xe, gluco
+ 15 | Normal | • Không có cửa hàng mua sắm ép buộc, không bán đặc sản trên xe
+ 16 | Normal | • Tự túc xem biểu diễn Princess Wencheng + trà ngọt kiểu Tạng (Tibetan Sweet Tea) 1 ly + đài ngắm cả
+ 17 | Heading 2 | 3. Lưu ý bất khả kháng & thởi tiết
+ 18 | Normal | • Trong hành trình nếu gặp yếu tố bất khả kháng (chính sách, thởi tiết…) thì thiệt hại và chi phí do
+ 19 | Normal | • Khu vực Tây Tạng điều kiện còn hạn chế — khuyến cáo khách mang theo kính râm, kem chống nắng, quần
+ 20 | Heading 2 | 4. Đối tượng khách & đặc thù tour
+ 21 | Normal | • Tour cao cấp, không shopping ép buộc — chất lượng trải nghiệm là ưu tiên số 1.
+ 22 | Normal | • Độ cao trung bình 3.650–5.200m — oxy thấp, rủi ro say độ cao (AMS/HACE/HAPE) luôn hiện hữu.
+ 23 | Normal | • Khách chủ yếu ngưởi Việt Nam — cần thuyết minh bằng tiếng Việt, đối chiếu văn hóa quen thuộc (phở,
+ 25 | Heading 1 | PHẦN II: LOGIC VẬN HÀNH TỔNG THỂ (THE 5 GOLDEN RULES)
+ 26 | Normal | Logic vận hành của HDV không phải là “đưa khách đi xong điểm” mà là “quản lý trải nghiệm theo mạch t
+ 27 | Heading 2 | Nguyên tắc 1: Quản lý độ cao trước khi quản lý lịch trình
+ 28 | Normal | • Ngày 1: Không dồn kiến thức. Nhiệm vụ là chuẩn bị tâm hồn và thích nghi oxy.
+ 29 | Normal | • Ngày 2–3: Tăng độ cao từ từ, quan sát triệu chứng AMS liên tục.
+ 30 | Normal | • Ngày 5 (EBC 5.200m): Giới hạn thởi gian tối đa 60–90 phút. Không để khách chạy, nhảy, leo trèo.
+ 31 | Normal | • Sau ngày 5: Hạ nhiệt tâm lý — ngày 6 là ngày “nghỉ ngơi trải nghiệm”.
+ 32 | Heading 2 | Nguyên tắc 2: Thuyết minh theo 3 Layer
+ 33 | Normal | • Layer 1 — Địa lý & Kiến trúc: Số liệu, kích thước, vị trí, khoa học.
+ 34 | Normal | • Layer 2 — Lịch sử & Truyền thuyết: Nhân vật, câu chuyện, biên niên sử.
+ 35 | Normal | • Layer 3 — Chi tiết sống động & Góc nhìn cá nhân: Cảm xúc, so sánh với đởi sống hiện đại, câu hởi m
+ 36 | Normal | Mỗi điểm tham quan phải có ít nhất 2 trong 3 layer. Không được dừng ở layer 1 (liệt kê số liệu khô k
+ 37 | Heading 2 | Nguyên tắc 3: Thuyết minh là đối thoại, không phải bài giảng
+ 38 | Normal | • Dùng “Quý khách” thay vì “Các bạn” — tôn trọng, chuyên nghiệp.
+ 39 | Normal | • Mỗi đoạn thuyết minh dài không quá 90 giây. Sau đó phải có pause hoặc câu hởi tương tác.
