@@ -4,3 +4,10 @@ books/
 # Python bytecode cache
 __pycache__/
 *.py[cod]
+
+# Local app outputs
+app/.smoke-output/
+app/site-package.tgz
+
+# Root command runner has no dependencies; its generated lockfile is unnecessary.
+/package-lock.json
