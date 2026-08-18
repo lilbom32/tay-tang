@@ -4,7 +4,7 @@ import daysIndex from "../content/days-index.json";
 export function Itinerary() {
   return (
     <div class="screen">
-      <h1>Lịch Trình 9 Ngày</h1>
+      <div class="page-lead"><span class="section-kicker">Hành trình theo ngày</span><h1>Lịch trình 9 ngày</h1><p>Mỗi ngày được tổ chức theo nhịp vận hành, độ cao và mục tiêu trải nghiệm — chọn một ngày để mở brief hoặc kịch bản chi tiết.</p></div>
       <ol class="day-list">
         {daysIndex.map((d) => (
           <li key={d.day} class="day-list-item">
@@ -17,7 +17,7 @@ export function Itinerary() {
                 </div>
                 <div class="day-layer">{d.knowledgeLayer}</div>
               </div>
-              {!d.hasDetail && <span class="badge-soon">Đang cập nhật</span>}
+              <span class={d.hasDetail ? "badge-ready" : "badge-soon"}>{d.hasDetail ? "Có kịch bản" : "Brief hành trình"}</span>
             </Link>
           </li>
         ))}

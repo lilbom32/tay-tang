@@ -46,10 +46,7 @@ export function DayDetail({ daySlug }: { daySlug?: string }) {
             <span class="label">Layer tri thức</span> {summary.knowledgeLayer}
           </div>
         </div>
-        <p class="empty-note">
-          Nội dung chi tiết (script thuyết minh, timeline touchpoint, checklist) của ngày này
-          đang được chuyển từ tài liệu gốc vào app — xem tạm trong <Link href="/cam-nang">Cẩm Nang HDV</Link>.
-        </p>
+        <section class="brief-panel"><span class="section-kicker">Brief điều hành · ngày {summary.day}</span><h2>{summary.theme}</h2><p>Ngày này đã có khung hành trình để điều phối đoàn. Kịch bản thuyết minh chi tiết đang được biên soạn từ tài liệu gốc; không hiển thị nội dung chưa được kiểm chứng.</p><div class="brief-metrics"><div><span>Độ cao dự kiến</span><strong>{summary.altitudeAvg}</strong></div><div><span>Nhịp trải nghiệm</span><strong>{summary.emotion}</strong></div><div><span>Trọng tâm</span><strong>{summary.knowledgeLayer}</strong></div></div><div class="brief-next"><Link href="/cam-nang" class="btn btn-primary">Mở cẩm nang an toàn</Link><Link href="/dieu-hanh" class="btn btn-ghost">Xem điểm rủi ro</Link></div></section>
       </div>
     );
   }

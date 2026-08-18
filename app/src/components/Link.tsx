@@ -9,6 +9,7 @@ interface LinkProps {
   class?: string;
   activeClassName?: string;
   role?: string;
+  onClick?: () => void;
   children?: ComponentChildren;
 }
 
